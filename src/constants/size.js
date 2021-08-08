@@ -1,0 +1,1 @@
+export  const BORDER = 2;

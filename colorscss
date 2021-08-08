@@ -1,0 +1,24 @@
+body{
+   // blueviolet;
+   color: #8a2be2;
+   // cornflowerblue;
+   color: #6495ed;
+   // darkgrey;
+   color: #a9a9a9;
+   // hotpink;
+   color: #ff69b4;
+   // indigo;
+   color: #4b0082;
+   // mediumpurple;
+   color: #9370d8;
+   // rebeccapurple;
+   color:  #663399;
+   // darkpurple;
+   color:  #3b1462;
+   
+   // darkblue
+   color:  #2a2a72;
+   // lightblue
+   color:  #009ffd;
+   
+}
