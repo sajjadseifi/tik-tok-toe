@@ -2,19 +2,38 @@ import React from "react";
 import { StyleSheet } from "react-native";
 import { GamePlayContainer } from '../container'
 import { TopGame } from './top-game/top-game'
-import { TrunPlayer } from '../player'
-import {  useGamePlaySeletor } from "../../hook/game-hook";
+import {  useGamePlayDispatch, useGamePlaySeletor } from "../../hook/game-hook";
 import { ContainerBoxGame } from "./box-game/container-box-game";
-import { TikTokToeProvider } from "../../context/tiktoktoe-context";
+import { useEffect } from "react";
+import { useBackdropDispatch } from "../../shared/backdrop/backdrop-hook";
+import  * as backdropActionTypes from "../../shared/backdrop/backdrop-action";
+import { EndRoundGameModal } from "./modal/endround-game-modal";
 
+const MODAL_KEY ="END_ROUND"
 export const Game =()=>{
-   const currentPlayer = useGamePlaySeletor(state=>state.currentPlayer);
+   const state = useGamePlaySeletor(state=>state);
+   const {endRound} = state;
+   const dispatch = useBackdropDispatch();
+   const gamePlayDispatch = useGamePlayDispatch()
+   useEffect(()=>{
+      if(endRound) addModal();
+   },[endRound])
+   
+   const addModal =()=>{
+      const Modal =   (     
+         <EndRoundGameModal 
+            state={state}
+            modalKey={MODAL_KEY} 
+            gamePlayDispatch={gamePlayDispatch}
+         />
+      );
+
+      dispatch(backdropActionTypes.addBackdrop(MODAL_KEY,Modal,true))
+   };
    return(
       <GamePlayContainer style={styles.container}>        
         <TopGame />
-        <TikTokToeProvider>
-            <ContainerBoxGame/>
-        </TikTokToeProvider>
+        <ContainerBoxGame/>
     </GamePlayContainer>
    )
 };

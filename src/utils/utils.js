@@ -1,3 +1,4 @@
+
 export const updateObject=(origin={},mercenary={})=>{
    return {
       ...origin,
@@ -30,3 +31,28 @@ export const ifExistenceComing=(iAm={},gifts={})=>{
       
    return myBirth;
 };
+
+export const checkingPropsBlit=(blitBook,bus)=>{
+   let acceptor ={};
+   for(let blit in bus)
+      for(let bb in blitBook){
+         if(`${bb}` != `${blit}`)
+            continue;
+
+         acceptor = updateObject(acceptor,{[blit]:bus[blit]})
+         break;
+      }
+   return acceptor;
+}
+export const pickObject=(keys=[])=>{
+   return (obj)=>{
+        let target = {};
+       
+        for (const key of keys) 
+            target= updateObject(target,{
+               [key]:obj[key]
+            })
+
+      return target;
+   };
+}

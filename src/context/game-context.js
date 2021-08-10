@@ -2,6 +2,9 @@ import React from "react";
 import { useReducer } from "react";
 import { useEffect } from "react/cjs/react.development";
 import { setCurrentPlayer } from "../store/actions/game-action";
+import * as t3Types from "../store/actions/tik-toc-toe";
+import * as gmTypes from "../store/actions/game-action";
+
 import { gameReducer, initialGameState } from "../store/reducer";
 export const GameStateContext = React.createContext()
 
@@ -20,7 +23,8 @@ export  const GameProvider =({children,...initialState}=props)=>{
       const value ={ state , dispatch };
       
       useEffect(()=>{
-         dispatch(setCurrentPlayer(state.turn))
+         dispatch(t3Types.initial());
+         dispatch(gmTypes.setCurrentPlayer(state.turn));
       },[])
       
       return (

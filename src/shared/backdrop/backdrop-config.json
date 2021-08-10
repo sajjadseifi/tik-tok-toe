@@ -1,0 +1,12 @@
+{
+   "backdropStyle":{
+      "opacity":20,
+      "backgroundColor":"black"
+   },
+   "animationConfigure":{
+      "duration":200,
+      "show":false
+   },
+   "content":null,
+   "contents":[]
+}

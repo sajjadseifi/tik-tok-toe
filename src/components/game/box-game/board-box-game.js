@@ -1,7 +1,7 @@
 import React from "react"
-import { StyleSheet, TouchableOpacity } from "react-native";
+import { StyleSheet } from "react-native";
 import { BORDER } from "../../../constants/size";
-import { useTikTokToeSeletor } from "../../../hook/tiktoktoe-hook";
+import { useGamePlaySeletor } from "../../../hook/game-hook";
 import { Card } from "../../../shared";
 import { updateObject } from "../../../utils";
 import { PlacePlayer } from "../../player/place-player";
@@ -9,7 +9,7 @@ import { Board } from "../../shared/board";
 import { PlaceBoardView } from "./place-board-view";
 
 export  const BoardBoxGame=({size})=>{
-   const board = useTikTokToeSeletor(state=>state.board);
+   const board = useGamePlaySeletor(state=>state.board);
    const conainerStyle = updateObject(styles.conainer,{
       width:size,
       height:size
@@ -24,11 +24,9 @@ export  const BoardBoxGame=({size})=>{
                render={({row,col})=>{
                   const place = board.getPlace(row,col);
                   return (
-                        //  <TouchableOpacity onPress={this.openPopup}> 
-                           <PlaceBoardView place={place}>
-                              <PlacePlayer board={board} place={place} />
-                           </PlaceBoardView>
-                        // </TouchableOpacity>
+                     <PlaceBoardView place={place}>
+                        <PlacePlayer board={board} place={place} />
+                     </PlaceBoardView>
                )}}
             />
          )}

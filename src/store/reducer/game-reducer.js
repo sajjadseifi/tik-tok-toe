@@ -1,5 +1,7 @@
+import * as actionTypes  from "../actions/action-types";
 import {updateObject} from "../../utils"
-import { actionTypes } from "../actions";
+import { clearBoard, setCurrentPlayer } from "./functionality";
+import { tiktoktoeReducer } from "./tiktoktoe-recuder";
 
 export const initialGameState={
    player1:null,//new Player(null,0,color.white),//new Player()
@@ -12,61 +14,65 @@ export const initialGameState={
    playofRounds:0,
    gameOver:false,
    children:null,
+   endRound:false,
+   board:null,
 };
 
 export const gameReducer =(state=initialGameState,action)=>{
-      switch(action.type){
+   
+   switch(action.type){
             case actionTypes.INITIAL_GAME_STATE:return init(state,action);
             case actionTypes.NEXT_GAME_ROUND: return next(state,action);
-            case actionTypes.CURRENT_GAME_PLAYER:return currentPlayer(state,action);
-      }
-      return state;
+            case actionTypes.CURRENT_GAME_PLAYER:return setCurrentPlayer(state,action.turn);
+            case actionTypes.GAME_PLAYER_NEXT_TURN:return nextTrun(state,action);
+            case actionTypes.GAME_PLAY_END_ROUNDS:return updateObject(state,{endRound:true});
+            case actionTypes.RE_GAME_ROUND:return reRoundGame(state,action);
+   }
+
+    return tiktoktoeReducer(state,action)     
 }
 
 const init=(state,action)=>{
-   
    const gift = {
       player1:action.player1,
       player2:action.player2,
       turn:action.turn,
       maxRounds:action.maxRounds,
    };
-
-   const updatedState = ifExistenceComing(state,gift)
    
-   updatedState.currentPlayer =  updatedState.turn == 0 ?
-            updatedState.player1:updatedState.player2;
-
-   return newState;
+   let updatedState = ifExistenceComing(state,gift)
+   return  setCurrentPlayer(updatedState, updatedState.turn)
 }
-
-const next=(state,_action)=>{
-   const {player1,player2,turn} =state;
-   const newTurn = (turn+1) %2;
-   const currentPlayer = newTurn == 0 ?player1:player2; 
-   let update={};
-   
-   if(state.round == state.maxRounds){      
-      if(player1.round == player2.round) 
-         update = updateObject(state,{playof:true,playofRounds:1})
-      else  
-         update = updateObject(state,{gameOver:true})
-   }
-   else if(checker.playof)
-         update = nextRoundWithKey(state,"playofRounds")
-   else 
-         update = nextRoundWithKey(state,"round")
+const gameOver=(state)=>updateObject(state,{gameOver:true});
+const startPlayof=(state)=> updateObject(state,{playof:true,playofRounds:1})
+const next=(state,_)=>{
+   const {player1,player2} =state;
+   const newRound = (state.round+1);
+   const newTurn = (newRound-1) % 2;
       
-   return currentPlayer(update,{turn:newTurn})
+   let updatedState = clearBoard(state)
+   
+   if(updatedState.round == updatedState.maxRounds){      
+      updatedState = player1.round == player2.round
+         ?  startPlayof(updatedState) 
+         :  gameOver(updatedState)
+   }
+   else if(updatedState.playof)
+      updatedState = nextRoundWithKey(updatedState,"playofRounds")
+   else 
+      updatedState = nextRoundWithKey(updatedState,"round")
+         
+   const updateCurerent =  setCurrentPlayer(updatedState,newTurn)   
+   return updateObject(updateCurerent,{ round:newRound})
 }
+const reRoundGame=(state,_)=>{
+
+   const newTurn = (state.round - 1) % 2;
+   const updatedBoard = clearBoard(state)
+   if(newTurn == state.turn) 
+      return updatedBoard;
+
+   return setCurrentPlayer(updatedBoard,newTurn)   
+};
 
 const nextRoundWithKey=(state,key) => updateObject(state,{ [key]:state[key] + 1})
-
-const currentPlayer=(state,action)=>{
-   return updateObject(state,{
-      turn:action.turn,
-      currentPlayer : action.turn == 0 
-      ? state.player1
-      : state.player2 
-   })
-}

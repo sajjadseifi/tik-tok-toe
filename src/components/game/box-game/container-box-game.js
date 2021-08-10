@@ -2,6 +2,7 @@ import React from "react"
 import {StyleSheet, View} from "react-native"
 import { useState } from "react/cjs/react.development";
 import { BoardBoxGame } from "./board-box-game";
+
 export const ContainerBoxGame=()=>{
    const [size,setSize] =useState(0);
    const [dimensions,setDimensions] =useState(undefined)
