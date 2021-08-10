@@ -15,4 +15,5 @@ export default {
    darkblue:"#2a2a72",
    black:"#000",
    white:"#fff",
+   red:"#f00"
 }

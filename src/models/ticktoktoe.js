@@ -7,12 +7,15 @@ export class TikTokToe{
    places=[];
    endGame=false;
    lineBlade=null;
+   sitedNumber=0;
+   isWin=false;
    constructor(rows,cols){
       this.init(rows,cols);
    }
    init(rows=ROWS,cols=COLS){
       this.endGame=false;
       this.lineBlade=null;
+      this.sitedNumber=0;
       this.rows = rows;
       this.cols = cols;
       this.places = new Array(this.rows)
@@ -28,6 +31,7 @@ export class TikTokToe{
       } 
    }  
    clear(){
+      this.sitedNumber=0;
       this.endGame=false;
       this.lineBlade=null;
       for (let row = 0; row < this.rows; row++)
@@ -47,6 +51,7 @@ export class TikTokToe{
          if(place .exist)
             throw new Error("کاربر در این مکان نشسته است");
          
+         this.sitedNumber=this.sitedNumber + 1;
          place.sitInPlace(player)
          this.checkWin()
    }
@@ -117,12 +122,15 @@ export class TikTokToe{
             return !end;
    }
    checkWin(){
-      this.endGame = (
-         this.checkRow() ||
-         this.checkCol() || 
-         this.checkDiameter() 
-         // ||!this.checkCanRun()
-      )
+      this.endGame =  (this.checkRow() || this.checkCol() || this.checkDiameter())
+ 
+      console.log("checkWin() :: this.sitedNumber = ",this.sitedNumber)
+      if(this.endGame)
+         this.isWin = true;
+      else if(this.sitedNumber == 9){
+         this.isWin = false;
+         this.endGame = true;
+      }
    }
    endOfGame=()=>this.endGame;
 }

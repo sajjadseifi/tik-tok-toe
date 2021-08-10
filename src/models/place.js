@@ -7,6 +7,7 @@ export class Place{
    sitInPlace=(player) => {
       this.player= player;
       this.exist =true;
+      this.animated();
    }
    init(){
       this.clear();

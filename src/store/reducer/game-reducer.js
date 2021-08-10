@@ -45,13 +45,33 @@ const init=(state,action)=>{
 }
 const gameOver=(state)=>updateObject(state,{gameOver:true});
 const startPlayof=(state)=> updateObject(state,{playof:true,playofRounds:1})
+const updateScore =(state,turn)=> {
+   const {player1,player2,board} = state;
+   console.log("board.isWin",board.isWin)
+   if(!board.isWin) return state;
+
+   const player = (turn == 0) ? player1 : player2;
+   
+   player.addScore();
+   let  upState =(turn == 0)
+   ?  { player1 : player }
+   :   { player2 : player };
+
+   
+   return updateObject(state,upState)
+}
+
 const next=(state,_)=>{
    const {player1,player2} =state;
    const newRound = (state.round+1);
    const newTurn = (newRound-1) % 2;
       
-   let updatedState = clearBoard(state)
+   let updatedState =  updateScore(state,state.turn)
    
+   console.log(updatedState.player1,updatedState.player2);
+
+   updatedState = clearBoard(updatedState)
+
    if(updatedState.round == updatedState.maxRounds){      
       updatedState = player1.round == player2.round
          ?  startPlayof(updatedState) 
@@ -65,6 +85,7 @@ const next=(state,_)=>{
    const updateCurerent =  setCurrentPlayer(updatedState,newTurn)   
    return updateObject(updateCurerent,{ round:newRound})
 }
+
 const reRoundGame=(state,_)=>{
 
    const newTurn = (state.round - 1) % 2;
@@ -75,4 +96,4 @@ const reRoundGame=(state,_)=>{
    return setCurrentPlayer(updatedBoard,newTurn)   
 };
 
-const nextRoundWithKey=(state,key) => updateObject(state,{ [key]:state[key] + 1})
+const nextRoundWithKey=(state,key) => updateObject(state,{ [key]:state[key] + 1});

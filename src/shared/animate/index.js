@@ -1,0 +1,1 @@
+export {OpacityAnimate} from "./opacity-animate"

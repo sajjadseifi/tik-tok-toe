@@ -1,10 +1,10 @@
 import React from "react";
 import { StyleSheet } from "react-native";
 import { Button } from 'react-native-elements';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { updateObject } from "../../utils";
 
-export const CustomIcon =({color,name,...props})=>( 
+export const CustomIcon =({Icon,color,name,...props})=>( 
    <Icon
       style={styles.iconButton}
       name={name}
@@ -21,6 +21,7 @@ export const ButtonIcon =({
    title,
    iconName,
    type,
+   Icon=FontAwesome,
    onPress=()=>{}
 })=>{
 
@@ -38,7 +39,7 @@ export const ButtonIcon =({
          onPress={onPress}  
          titleStyle={titleStyle}
          buttonStyle={btnStyle}
-         icon={()=> <CustomIcon  name={iconName} color={titleColor}/> }
+         icon={()=> <CustomIcon Icon={Icon}  name={iconName} color={titleColor}/> }
       />
    )
 };

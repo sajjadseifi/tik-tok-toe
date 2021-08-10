@@ -1,10 +1,7 @@
 import React,{ useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { color } from "../../../constants";
-import AntIcon from 'react-native-vector-icons/AntDesign';
-import EntypoIcon from 'react-native-vector-icons/Entypo';
 import { Flex } from "../../ui";
-import { IconButton } from "../../ui/icon-button";
 import { ExplosiveModal } from "../../../shared/modal/explosive-modal";
 import { useBackdropDispatch } from "../../../shared/backdrop/backdrop-hook";
 import * as backdropActions  from "../../../shared/backdrop/backdrop-action";
@@ -12,12 +9,16 @@ import { ConfirmModal } from "../../../shared/modal/confirm-modal";
 import * as gameActionTypes from "../../../store/actions/game-action";
 import { WhiteWindow } from "../../../shared/ui/white-window";
 import { useGlobalSeletor } from "../../../hook/global-hook";
+import { ButtonIcon } from "../../../shared/ui/button-icon";
+import { endRoundConfig } from "./config-modals";
+import { WinPlayer } from "../../player/win-plater";
 
 export const EndRoundGameModal=({state,gamePlayDispatch,modalKey})=>{
    const [close ,setClose]=useState(false);
 
    const dispatch = useBackdropDispatch();
-   const {confirmed,titleHeader} = useGlobalSeletor(state=>state.messages.endRound);
+   const endRoundConf = useGlobalSeletor(state=>state.messages.endRound);
+   const {titleHeader} = endRoundConf;
    const onCloseBtn=(key,title,onConfirm=()=>{})=>{
       const Cmp = (
          <ConfirmModal
@@ -33,29 +34,37 @@ export const EndRoundGameModal=({state,gamePlayDispatch,modalKey})=>{
       dispatch(backdropActions.addBackdrop(key,Cmp,true,true));
    }
    
-   const closedBtn= ()=>onCloseBtn("closed",confirmed.closed,()=>{
-         console.log("Close Game");
+   const closedBtn= ()=> console.log("Close Game");
+
+   const reRoundBtn = () => gamePlayDispatch(gameActionTypes.reRound())
+   
+   const nextRoundBtn = () => gamePlayDispatch(gameActionTypes.nextRound())
+
+   const conf = endRoundConfig( {
+      messages:endRoundConf,
+      onClose:onCloseBtn,
+      cbsFunc:{
+         next:nextRoundBtn,
+         reRun:reRoundBtn,
+         exit:closedBtn,
+      }
    });
 
-   const reRoundBtn = () =>  onCloseBtn("reTurn",confirmed.reTurn,()=>{
-      gamePlayDispatch(gameActionTypes.reRound())
-   });
-   
-   const nextRoundBtn = () => onCloseBtn("nextTurn",confirmed.nextTurn,()=>{
-         gamePlayDispatch(gameActionTypes.nextRound())
-   });
-   
    return(
       <ExplosiveModal close={close} onClosed={()=>onClosed(modalKey)}>
          <WhiteWindow style={styles.window} shadow>
             <View style={styles.top}>
                <Text style={styles.topStaticText}>{titleHeader}</Text>
-               <Text style={styles.playerName}>{`${(state.currentPlayer && state.currentPlayer.name)}`}</Text>
+               <WinPlayer 
+                   textStyle={styles.playerName}
+                   currentPlayer={state.currentPlayer}
+                   isWin={state.board.isWin}
+               />
             </View>
             <Flex evenly style={styles.bottom}>
-               <IconButton name="close" size={30} color="red"  onPress={closedBtn} />
-               <IconButton Icon={EntypoIcon} name="ccw" size={30} color="blue" onPress={reRoundBtn} />
-               <IconButton  Icon={AntIcon} name="rightcircle" size={30} color="green" onPress={nextRoundBtn} />
+               <ButtonIcon   onPress={nextRoundBtn}  {...conf.next} />
+               <ButtonIcon   onPress={reRoundBtn}  {...conf.reRun} />
+               <ButtonIcon   onPress={closedBtn}  {...conf.exit} />
             </Flex>
          </WhiteWindow>
       </ExplosiveModal>

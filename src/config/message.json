@@ -1,6 +1,15 @@
 {
    "endRound":{
       "titleHeader":"برنده این دور از بازی",
+      "winthoutWinner":"این دور بدون برنده میباشد!",
+      "baseModal":{
+         "next":"بعدی",
+         "reRun":"دوباره",
+         "exit":"خروج",
+         "next:icon":"leftcircle",
+         "reRun:icon":"ccw",
+         "exit:icon":"close"
+      },
       "confirmed":{
          "closed":"ایا میخواهید از برنامه خارج شوید؟",
          "reTurn":"ایا میخواید این دور از بازی تکرار شود؟",
@@ -10,7 +19,9 @@
    "modal":{
       "confirm":{
          "ok":"بله",
-         "cancel":"خیر"
+         "cancel":"خیر",
+         "cancel:icon":"remove",
+         "ok:icon":"check"
       }
    }
 }
