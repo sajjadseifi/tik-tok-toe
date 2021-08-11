@@ -1,13 +1,18 @@
 {
    "endRound":{
-      "titleHeader":"برنده این دور از بازی",
+      "titleHeader":{
+         "round":"برنده این دور از بازی",
+         "play":"برنده بازی"
+      },
       "winthoutWinner":"این دور بدون برنده میباشد!",
       "baseModal":{
          "next":"بعدی",
          "reRun":"دوباره",
+         "play":"شروع بازی",
          "exit":"خروج",
          "next:icon":"leftcircle",
          "reRun:icon":"ccw",
+         "play:icon":"play",
          "exit:icon":"close"
       },
       "confirmed":{

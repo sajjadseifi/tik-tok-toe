@@ -1,7 +1,7 @@
 import * as actionTypes  from "../actions/action-types";
 import { TikTokToe } from "../../models/ticktoktoe";
 import { updateObject } from "../../utils";
-import { setCurrentPlayer } from "./functionality";
+import { checkWinner, setCurrentPlayer } from "./functionality";
 
 export const initialTikTokToeState ={
    board:null,
@@ -46,8 +46,10 @@ const nextTrun=(state,action)=>{
    const {board } = action;
    let updatedState=updateObject(state,{ board })
 
-   if(board.endOfGame())
-      return updateObject(updatedState,{endRound:true})
+   if(board.endOfGame()){
+      const winState= updateObject(updatedState,checkWinner(updatedState))
+      return updateObject(winState,{endRound:true})
+   }
    
    const newTurn = (state.turn +1) % 2;
    return  setCurrentPlayer(state, newTurn);

@@ -3,8 +3,8 @@ import { StyleSheet,View } from "react-native";
 import { color as Colors } from "../../constants";
 import { updateObject } from "../../utils";
 import { BaseShape } from "./base-shape";
-
-export const CircleShape=({color=Colors.black,size=1})=>{
+import Icon  from "react-native-vector-icons/Entypo"
+export const CircleShape=({color=Colors.black,size=1,onAnimated=()=>{}})=>{
    
    const styled = updateObject(styles.circle,{
       borderColor:color,
@@ -12,8 +12,8 @@ export const CircleShape=({color=Colors.black,size=1})=>{
    });
 
    return (
-      <BaseShape>
-         <View style={styled}></View>
+      <BaseShape onAnimated={onAnimated}>
+         <Icon  color={color} name="circle" size={80}  />
       </BaseShape>
    )
 };

@@ -4,7 +4,8 @@ import { OpacityAnimate } from "../../shared/animate";
 
 export const BaseShape=({
    wrapper=OpacityAnimate,
-   children
+   children,
+   onAnimated=()=>{}
 })=>{
    
    const Wrapper =wrapper;
@@ -24,7 +25,7 @@ const styles = StyleSheet.create({
       height:"100%"  
    },
    base:{
-      width:"80%",
-      height:"80%"  
+      alignItems:"center",
+      justifyContent:"center"
    }
 })

@@ -1,4 +1,4 @@
-import React,{ Fragment, useState } from "react";
+import React,{ useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { color } from "../../../constants";
 import { Flex } from "../../ui";
@@ -12,7 +12,6 @@ import { useGlobalSeletor } from "../../../hook/global-hook";
 import { ButtonIcon } from "../../../shared/ui/button-icon";
 import { endRoundConfig } from "./config-modals";
 import { WinPlayer } from "../../player/win-plater";
-import { Ninja } from "../../../shared/ninja";
 
 export const EndRoundGameModal=({state,gamePlayDispatch,modalKey})=>{
    const [close ,setClose]=useState(false);
@@ -38,47 +37,33 @@ export const EndRoundGameModal=({state,gamePlayDispatch,modalKey})=>{
    const closedBtn= ()=> console.log("Close Game");
 
    const reRoundBtn = () => gamePlayDispatch(gameActionTypes.reRound())
-   const rePlaytnBtn = () => gamePlayDispatch(gameActionTypes.reRound())
    
    const nextRoundBtn = () => gamePlayDispatch(gameActionTypes.nextRound())
 
-   
    const conf = endRoundConfig( {
       messages:endRoundConf,
       onClose:onCloseBtn,
       cbsFunc:{
          next:nextRoundBtn,
          reRun:reRoundBtn,
-         play:rePlaytnBtn,
          exit:closedBtn,
       }
    });
+
    return(
       <ExplosiveModal close={close} onClosed={()=>onClosed(modalKey)}>
          <WhiteWindow style={styles.window} shadow>
             <View style={styles.top}>
-            <Ninja condition={state.endPlay}>
-               <Text style={styles.topStaticText}>{titleHeader.play}</Text>
-               <Text style={styles.topStaticText}>{titleHeader.round}</Text>
-            </Ninja>
+               <Text style={styles.topStaticText}>{titleHeader}</Text>
                <WinPlayer 
                    textStyle={styles.playerName}
-                   currentPlayer={state.endPlay ? state.winner: state.currentPlayer}
-                   isWin={state.board.isWin || !!state.winner}
+                   currentPlayer={state.currentPlayer}
+                   isWin={state.board.isWin}
                />
             </View>
             <Flex evenly style={styles.bottom}>
-               <Ninja condition={state.endPlay}>
-                        <Fragment>
-                           <ButtonIcon   onPress={rePlaytnBtn}  {...conf.play} />
-                           <ButtonIcon   onPress={closedBtn}  {...conf.exit} />
-                        </Fragment>
-                        <Fragment>
-                           <ButtonIcon   onPress={nextRoundBtn}  {...conf.next} />
-                           <ButtonIcon   onPress={reRoundBtn}  {...conf.reRun} />
-                           <ButtonIcon   onPress={closedBtn}  {...conf.exit} />
-                        </Fragment>
-               </Ninja>
+               <ButtonIcon   onPress={reRoundBtn}  {...conf.reRun} />
+               <ButtonIcon   onPress={closedBtn}  {...conf.exit} />
             </Flex>
          </WhiteWindow>
       </ExplosiveModal>

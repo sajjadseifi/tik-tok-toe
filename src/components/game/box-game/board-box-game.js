@@ -1,4 +1,6 @@
 import React from "react"
+import { useEffect } from "react";
+import { useState } from "react";
 import { StyleSheet } from "react-native";
 import { BORDER } from "../../../constants/size";
 import { useGamePlaySeletor } from "../../../hook/game-hook";
@@ -9,11 +11,13 @@ import { Board } from "../../shared/board";
 import { PlaceBoardView } from "./place-board-view";
 
 export  const BoardBoxGame=({size})=>{
-   const board = useGamePlaySeletor(state=>state.board);
+   const state = useGamePlaySeletor(state=>state);
+   const {board} = state;
    const conainerStyle = updateObject(styles.conainer,{
       width:size,
       height:size
    });
+   
 
    return (
       <Card dashed style={conainerStyle}>
@@ -22,10 +26,11 @@ export  const BoardBoxGame=({size})=>{
                cols={board.cols}
                rows={board.rows}
                render={({row,col})=>{
-                  const place = board.getPlace(row,col);
+                  const place = board.places[row][col]
+                  const Rendered = <PlacePlayer board={board} place={place} />
                   return (
                      <PlaceBoardView place={place}>
-                        <PlacePlayer board={board} place={place} />
+                        {Rendered}
                      </PlaceBoardView>
                )}}
             />

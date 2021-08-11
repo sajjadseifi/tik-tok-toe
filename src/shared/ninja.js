@@ -9,7 +9,5 @@ export const Ninja = ({condition,children})=>{
       chs[1] = children[1];
    }
 
-   return null;
-   
    return condition ? chs[0]:chs[1];
 };

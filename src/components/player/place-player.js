@@ -18,7 +18,9 @@ export const PlacePlayer =({place= new Place()})=>{
    const Shape =place.player? place.player.shape:null;
    
    const  sitDowIt= () => dispatch(t3Actions.sitDownToPlace(currentPlayer,place));
-
+   const onAnimated = ()=>{
+      place.animated();
+   };
     return (
          <Cmp
             activeOpacity={0.85}
@@ -27,7 +29,12 @@ export const PlacePlayer =({place= new Place()})=>{
          >
          {place.player && (
             <View style={styles.sitedPlayer}>
-               <Shape useAnim={place.useAnimate}  color={place.player.color} size={10} />
+               <Shape 
+                  onAnimated={onAnimated}
+                  useAnim={place.useAnimate}
+                  color={place.player.color}
+                  size={10}
+               />
             </View>
          )}
          </Cmp>

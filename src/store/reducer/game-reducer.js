@@ -16,6 +16,8 @@ export const initialGameState={
    children:null,
    endRound:false,
    board:null,
+   endPlaye:false,
+   winner:null,
 };
 
 export const gameReducer =(state=initialGameState,action)=>{
@@ -47,7 +49,7 @@ const gameOver=(state)=>updateObject(state,{gameOver:true});
 const startPlayof=(state)=> updateObject(state,{playof:true,playofRounds:1})
 const updateScore =(state,turn)=> {
    const {player1,player2,board} = state;
-   console.log("board.isWin",board.isWin)
+
    if(!board.isWin) return state;
 
    const player = (turn == 0) ? player1 : player2;
@@ -67,9 +69,6 @@ const next=(state,_)=>{
    const newTurn = (newRound-1) % 2;
       
    let updatedState =  updateScore(state,state.turn)
-   
-   console.log(updatedState.player1,updatedState.player2);
-
    updatedState = clearBoard(updatedState)
 
    if(updatedState.round == updatedState.maxRounds){      
@@ -83,7 +82,9 @@ const next=(state,_)=>{
       updatedState = nextRoundWithKey(updatedState,"round")
          
    const updateCurerent =  setCurrentPlayer(updatedState,newTurn)   
-   return updateObject(updateCurerent,{ round:newRound})
+   return updateObject(updateCurerent,{
+       round:newRound
+   })
 }
 
 const reRoundGame=(state,_)=>{

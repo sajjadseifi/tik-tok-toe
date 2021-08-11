@@ -1,20 +1,19 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet } from "react-native";
 import { color as Colors } from "../../constants";
-import { updateObject } from "../../utils";
 import { BaseShape } from "./base-shape";
+import Icon  from "react-native-vector-icons/FontAwesome"
 
-export const TimesShape =({color= Colors.black,size=1})=>{
+export const TimesShape =({color= Colors.black,size=1,onAnimated=()=>{}})=>{
       
-   const styledProps = updateObject(styles.line,{
-      backgroundColor:color,
-      width:size
-   });
+   // const styledProps = updateObject(styles.line,{
+   //    backgroundColor:color,
+   //    width:size
+   // });
 
    return (
-      <BaseShape>
-         <View style={updateObject(styles.less90,styledProps)}></View>
-         {/* <View style={updateObject(styles.grate90,styledProps)}></View> */}
+      <BaseShape onAnimated={onAnimated}>
+         <Icon  color={color} name="times" size={80}  />
       </BaseShape>
    )
 };

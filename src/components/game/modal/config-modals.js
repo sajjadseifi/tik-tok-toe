@@ -11,7 +11,8 @@ export const endRoundConfig =({
    const {
       next=()=>{},
       reRun=()=>{},
-      exit=()=>{}
+      exit=()=>{},
+      play=()=>{},
    } = cbsFunc;
    
    return ({
@@ -31,6 +32,15 @@ export const endRoundConfig =({
          titleColor:color.purple,
          backgroundColor:color.white,
          onPress:()=> onClose("reRunTurn",confirmed.reTurn,reRun)
+      },
+      play:{
+         type:"outline",
+         Icon:AntIcon,    
+         iconName:baseModal["play:icon"],
+         title:baseModal.play,
+         titleColor:color.purple,
+         backgroundColor:color.white,
+         onPress:()=> onClose("play",confirmed.reTurn,play)
       }, 
       exit:{
          Icon:AntIcon,    
