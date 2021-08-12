@@ -16,10 +16,14 @@ export const BaseShape=({
    wrapper=OpacityAnimate,
    children,
 })=>{
+
    useEffect(()=>{
+      console.log({audio , play})
       if(audio && play) SoundPlayer.playSound(audio)
    },[audio,play])
+
    const Wrapper =wrapper;
+   
    return(
       <Wrapper style={styles.opacityWrapper}>
          <ScaleAnimate scales={jumAnimate}>
@@ -33,11 +37,9 @@ export const BaseShape=({
 
 const styles = StyleSheet.create({
    opacityWrapper: {
-      width:"100%",
-      height:"100%"  
    },
    base:{
       alignItems:"center",
-      justifyContent:"center"
+      justifyContent:"center",
    }
 })

@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { color } from "../../constants";
+import { TextJumber } from "../../shared/animate";
 
 export const RoundGame =({rounds,maxRounds})=>{
    rounds=`${rounds}`;
@@ -8,7 +9,7 @@ export const RoundGame =({rounds,maxRounds})=>{
 
    return (
       <View style={styles.gameRounds}>
-         <Text style={styles.round}>{rounds}</Text>
+         <TextJumber defaultValue={0} text={rounds} style={styles.round} />
          <Text style={styles.splitor}>/</Text>
          <Text style={styles.round}>{maxRounds}</Text>
       </View>
@@ -21,13 +22,14 @@ const styles = StyleSheet.create({
       alignItems:"center"
    },
    splitor:{
-      paddingHorizontal:5,
-      color:color.darkgrey,
-      fontWeight:"bold"
+      paddingHorizontal:10,
+      color:color.white,
+      fontWeight:"bold",
+      fontSize:22,
    },
    round:{
-      fontSize:18,
+      fontSize:22,
       fontWeight:"bold",
-      color:color.darkgrey
+      color:"#ccc"
    }
 })

@@ -27,7 +27,7 @@ export const PlaceBoardView=({children,place = new Place()})=>{
    )
 };
 
-
+const STATIC_MARGIN_BOARD=0
 const styles = StyleSheet.create({
       abs:{
             position:"absolute",
@@ -41,25 +41,25 @@ const styles = StyleSheet.create({
          flex:1,
       },
       borderPlace:{
-         flex:1,
          borderColor:color.white,
-         borderStyle:"dashed",
          margin:10,
+         borderWidth:0,
+         flex:1,
       },
       top:{ 
          borderTopWidth:HALF_BORDER ,
-         marginTop:0,
+         marginTop:STATIC_MARGIN_BOARD,
       },
       right:{ 
          borderRightWidth:HALF_BORDER ,
-         marginRight:0,
+         marginRight:STATIC_MARGIN_BOARD,
       },
       bottom:{
          borderBottomWidth:HALF_BORDER,
-         marginBottom:0,
+         marginBottom:STATIC_MARGIN_BOARD,
        },
       left:{
          borderLeftWidth:HALF_BORDER ,
-         marginLeft:0,
+         marginLeft:STATIC_MARGIN_BOARD,
       }
 });   

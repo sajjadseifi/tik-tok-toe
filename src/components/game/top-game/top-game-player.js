@@ -3,21 +3,15 @@ import { StyleSheet, View } from "react-native";
 import { useGamePlaySeletor } from "../../../hook/game-hook";
 import { Player } from "../../../models";
 import { cleverPluckedCombination } from "../../../utils";
-import { ScorePlayer ,NamePlayer } from "../../player";
-import { MyTurnPlayer } from "../../player/mtTurn-player";
+import { NamePlayer } from "../../player";
 import { WinListTopGame } from "./wind-list-top-game";
 
-export const TopGamePlayer=({style={},player= new Player()})=>{
-   const currentPlayer = useGamePlaySeletor(state => state.currentPlayer)
+export const TopGamePlayer=({right=false,style={},player= new Player()})=>{
+
    return(
       <View style={cleverPluckedCombination(styles.topGamePalyer,style)}>
          <NamePlayer name={player.name} color={player.color}  />
-         <MyTurnPlayer 
-            color={player.color}
-            style={styles.myTurn}
-            isMyTurn={currentPlayer &&  player.id == currentPlayer.id} 
-         />      
-         <WinListTopGame player={player} />
+         <WinListTopGame revers={right} player={player} />
       </View>
    )
 };

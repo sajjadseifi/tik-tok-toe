@@ -14,45 +14,60 @@ export const ScaleAnimate  =({
    scales=[],
    duration=50,
    show=false,
+   afterAnimated=()=>{},
    children,
 })=>{
+
    const [inited,setInited] =useState(false);
    const vertical = useRef(new Animated.Value(scales.length>0?scales[0].x:startScaleY)).current;
    const horizontal = useRef(new Animated.Value(scales.length>0?scales[0].y:startScaleX)).current;
 
-   console.log("OUT useffect inited")
    useEffect(()=>{
-      console.log("BEFOR inited")
-      if(!show && inited) return;
-      console.log("AFTER inited")
-      setInited(true);
+      let showable =false;
+      if(typeof show == "function") showable = show()
+      
+      if(!showable && inited) return;
+      
+      if(!inited) setInited(true);
 
       if(scales.length > 0) arrayAnimate();
       else animate(); 
+
+      return ()=> setInited(true);
    });
 
    const animate = ()=>{
       animateTiming(horizontal,endScaleX,duration);
       animateTiming(vertical,endScaleY,duration);  
+      setTimeout(() => afterAnimated(), duration);
    }
    const arrayAnimate=()=>{
       const amimate=(isVertical=false,index=1)=>{
          if(index >=  scales.length || index < 0) return;
          const {x,y,dx,dy, duration : d} = scales[index];
-         
+
          const anim ={
             to :isVertical?vertical:horizontal,
             val: isVertical?y:x,
             dur:(isVertical ? dy:dx )  ||  (d || duration),
             recFun:()=>amimate(isVertical,index+1)
          };
-         console.log(anim.val,anim.dur);
          animateTiming(anim.to,anim.val,anim.dur,anim.recFun);
       }
       //horizontal
       amimate();
       //vertical
       amimate(true);
+      
+      let timer = 20; 
+      for (const scale of scales) {
+         let t=0;
+         const {dx=0,dy=0, duration=0} = scale;  
+         if(dx || dy) t = dy > dx ? dy:dx;
+         else if (duration) t = duration;
+         timer+=t;
+      }
+      setTimeout(() => afterAnimated(), timer);
    };
 
    const scalableStyle = trasnformScale(vertical,horizontal);

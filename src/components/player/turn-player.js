@@ -31,8 +31,5 @@ const styles = StyleSheet.create({
          fontSize:20,
          color:color.black,
          fontWeight:"bold"
-   },
-   shadowBox:{
-
    }
 });

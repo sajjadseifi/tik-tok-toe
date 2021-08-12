@@ -12,7 +12,7 @@ export const TopGame = () =>{
       <Flex   between style={styles.topGame}>
             <TopGamePlayer style={styles.player1} player={player1}/>
             <TopGameCenter maxRounds={maxRounds} rounds={round}/>
-            <TopGamePlayer right style={styles.player2} player={player2}/>
+            <TopGamePlayer right={true} style={styles.player2} player={player2}/>
       </Flex>
    )
 }

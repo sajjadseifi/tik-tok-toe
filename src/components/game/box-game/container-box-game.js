@@ -29,6 +29,7 @@ const styles = StyleSheet.create({
       justifyContent:"center"
    },
    tiktoktoe:{
-
+      flex:1,
+      justifyContent:"center"
    }
 })

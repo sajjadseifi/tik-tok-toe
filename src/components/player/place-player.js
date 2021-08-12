@@ -1,9 +1,8 @@
-import React,{ useState } from "react";
-import {  StyleSheet,  TouchableOpacity, View } from "react-native"
+import React from "react";
+import { Pressable, StyleSheet, View } from "react-native"
 import { BORDER } from "../../constants/size";
 import { useGamePlayDispatch, useGamePlaySeletor } from "../../hook/game-hook";
 import { Place } from "../../models/place";
-import { SoundPlayer } from "../../models/sounds-player";
 import * as t3Actions from "../../store/actions/tik-toc-toe";
 import { updateObject } from "../../utils";
 import { dirBoardCreator } from "../../utils/board";
@@ -15,25 +14,23 @@ export const PlacePlayer =({place= new Place()})=>{
    const computed = dirBoardCreator(place.row,place.col,board.rows,board.cols,styles);   
    const placeplayerStyle = updateObject(styles.wrapper,computed);
    const currentPlayer = useGamePlaySeletor(state=>state.currentPlayer);
-   const Cmp = (place.exist || endRound) ? View:TouchableOpacity    
-   const Shape =place.player? place.player.shape:null;
    
-   const  sitDowIt= () =>{
-      dispatch(t3Actions.sitDownToPlace(currentPlayer,place));
-   } 
+   const  sitDowIt= () => dispatch(t3Actions.sitDownToPlace(currentPlayer,place));
+   
+   const Cmp = (place.exist || endRound) ? View:Pressable    
+   const Shape =place.player? place.player.shape:null;
 
     return (
          <Cmp
-            touchSoundDisabled={true}
-            activeOpacity={0.85}
-            style={placeplayerStyle}
+            android_disableSound
             onPress={sitDowIt}
+            style={placeplayerStyle}
          >
-         {place.player && (
-            <View style={styles.sitedPlayer}>
-               <Shape play  color={place.player.color} />
-            </View>
-         )}
+            {place.player && (
+               <View style={styles.sitedPlayer}>
+                  <Shape play  color={place.player.color} />
+               </View>
+            )}
          </Cmp>
    )
 }
@@ -50,14 +47,14 @@ const styles = StyleSheet.create({
       margin:0,
    },
    top:{ 
-      marginTop:BORDER_ADD_HALF ,
+      marginTop:BORDER_ADD_HALF,
    },
    right:{ 
       marginRight:BORDER_ADD_HALF,
    },
    bottom:{
       marginBottom:BORDER_ADD_HALF,
-      },
+   },
    left:{
       marginLeft:BORDER_ADD_HALF,
    }
