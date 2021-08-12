@@ -3,6 +3,7 @@ import {  StyleSheet,  TouchableOpacity, View } from "react-native"
 import { BORDER } from "../../constants/size";
 import { useGamePlayDispatch, useGamePlaySeletor } from "../../hook/game-hook";
 import { Place } from "../../models/place";
+import { SoundPlayer } from "../../models/sounds-player";
 import * as t3Actions from "../../store/actions/tik-toc-toe";
 import { updateObject } from "../../utils";
 import { dirBoardCreator } from "../../utils/board";
@@ -17,24 +18,20 @@ export const PlacePlayer =({place= new Place()})=>{
    const Cmp = (place.exist || endRound) ? View:TouchableOpacity    
    const Shape =place.player? place.player.shape:null;
    
-   const  sitDowIt= () => dispatch(t3Actions.sitDownToPlace(currentPlayer,place));
-   const onAnimated = ()=>{
-      place.animated();
-   };
+   const  sitDowIt= () =>{
+      dispatch(t3Actions.sitDownToPlace(currentPlayer,place));
+   } 
+
     return (
          <Cmp
+            touchSoundDisabled={true}
             activeOpacity={0.85}
             style={placeplayerStyle}
             onPress={sitDowIt}
          >
          {place.player && (
             <View style={styles.sitedPlayer}>
-               <Shape 
-                  onAnimated={onAnimated}
-                  useAnim={place.useAnimate}
-                  color={place.player.color}
-                  size={10}
-               />
+               <Shape play  color={place.player.color} />
             </View>
          )}
          </Cmp>

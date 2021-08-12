@@ -124,7 +124,6 @@ export class TikTokToe{
    checkWin(){
       this.endGame =  (this.checkRow() || this.checkCol() || this.checkDiameter())
  
-      console.log("checkWin() :: this.sitedNumber = ",this.sitedNumber)
       if(this.endGame)
          this.isWin = true;
       else if(this.sitedNumber == 9){

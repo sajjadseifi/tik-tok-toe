@@ -17,3 +17,4 @@ export default {
    white:"#fff",
    red:"#f00"
 }
+

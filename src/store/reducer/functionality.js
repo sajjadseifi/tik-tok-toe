@@ -1,3 +1,4 @@
+import { Player } from "../../models";
 import { updateObject } from "../../utils"
 
 export const setCurrentPlayer=(state,turn)=>{
@@ -14,18 +15,44 @@ export const clearBoard=(state)=>{
    board.clear();   
    return updateObject(state,{ board ,endRound:false }) 
 }
+const getWinner = (player1,player2)=>{
+   if(player1.score == player2.score) 
+      return null;
+
+   return player1.score > player2.score ? player1 : player2; 
+}
 export const checkWinner = (state)=>{
-   const {round,player1,player2 ,maxRounds}=state;
-   let winner=null;
-   let endPlaye=false;
-   if(round >= maxRounds) 
-      if(player1.round != player2.round){
-         winner = player1.round > player2.round ? player1 : player2; 
-         endPlaye = true;
-      }
+   const {round,maxRounds}=state;
+   let endPlay =round >= maxRounds;
    
-   return updateObject(state,{
-      winner,
-      endPlaye
-   })
+   if(!endPlay) return updateObject(state,{endPlay})
+
+   let updatedState =  updateScore(state)
+   
+   const {player1,player2} = updatedState;
+   const winner  = getWinner(player1,player2);
+
+   return updateObject(updatedState,{winner,endPlay})
 };
+
+export const gameOver=(state)=>updateObject(state,{gameOver:true});
+
+export const startPlayof=(state)=> updateObject(state,{playof:true,playofRounds:1})
+
+export const nextRoundWithKey=(state,key) => updateObject(state,{ [key]:state[key] + 1});
+
+
+export const updateScore =(state)=> {
+   const {player1,player2,turn,board} = state;
+
+   if(!board.isWin) return state;
+
+   const player = (turn == 0) ? player1 : player2;
+   
+   player.addScore();
+   let  upState =(turn == 0)
+   ?  { player1 : player }
+   :   { player2 : player };
+  
+   return updateObject(state,upState)
+}

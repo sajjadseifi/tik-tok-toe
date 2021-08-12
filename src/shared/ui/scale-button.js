@@ -44,7 +44,6 @@ export const ScaleButton=({
 
 const styles = StyleSheet.create({
    scalable:{
-      // backgroundColor:"red",
       transform:[
          {scaleY:1},
          {scaleX:1}

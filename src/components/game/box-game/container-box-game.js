@@ -2,6 +2,7 @@ import React from "react"
 import {StyleSheet, View} from "react-native"
 import { useState } from "react/cjs/react.development";
 import { BoardBoxGame } from "./board-box-game";
+import { TurnShape } from "./box-turn-shape";
 
 export const ContainerBoxGame=()=>{
    const [size,setSize] =useState(0);
@@ -15,6 +16,7 @@ export const ContainerBoxGame=()=>{
 
    return(
        <View onLayout={onLayout} style={styles.container}>
+            <TurnShape/>
             <View style={styles.tiktoktoe}>
                <BoardBoxGame size={size} />
             </View>

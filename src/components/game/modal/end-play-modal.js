@@ -28,7 +28,7 @@ export const EndRoundGameModal=({state,gamePlayDispatch,modalKey})=>{
                onConfirm();
                dispatch(backdropActions.close(modalKey));
             }}
-            onCancel={()=> {}}
+            // onCancel={()=> {}}
          />
       );
       dispatch(backdropActions.addBackdrop(key,Cmp,true,true));

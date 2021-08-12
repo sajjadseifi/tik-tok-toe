@@ -7,11 +7,14 @@ import { Flex } from "../../ui";
 
 export const WinListTopGame = ({player})=>{   
    const [nodes,setNodes] = useState([]);
-   // const windNodes = new Array(player.score).fill(undefined);
    useEffect(()=>{
-       if(nodes.length != player.score) addNodes();
+       if(nodes.length == player.score)  return;
+       
+      if(player.score == 0) setNodes([]);
+       
+       else addNodes()
    },[player.score])
-
+  
    const addNodes = ()=>{
          const node = (
             <WinNodePlayer

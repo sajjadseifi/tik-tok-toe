@@ -5,7 +5,11 @@
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"
-    ]
+    ],
+    "android": {
+      "package": "host.exp.exponent"
+    },
+    "description": "test"
   },
   "name": "tik-tok-toe"
 }

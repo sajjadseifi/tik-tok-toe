@@ -8,17 +8,21 @@
       "baseModal":{
          "next":"بعدی",
          "reRun":"دوباره",
-         "play":"شروع بازی",
+         "newPlay":"بازی جدید",
+         "playof":"پلی اف",
          "exit":"خروج",
-         "next:icon":"leftcircle",
+         "next:icon":"caretleft",
          "reRun:icon":"ccw",
-         "play:icon":"play",
+         "newPlay:icon":"play",
+         "playof:icon":"clockcircle",
          "exit:icon":"close"
       },
       "confirmed":{
          "closed":"ایا میخواهید از برنامه خارج شوید؟",
-         "reTurn":"ایا میخواید این دور از بازی تکرار شود؟",
-         "nextTurn":"رفتن به مرحله بعد؟"
+         "reTurn":"ایا میخواهید این دور از بازی تکرار شود؟",
+         "nextTurn":"رفتن به مرحله بعد؟",
+         "playofTurn":"ایا میخواهید به پلی اف برید؟",
+         "newPlay":"ایا مایل به شروعب بازی جدید هستد؟"
       }
    },
    "modal":{

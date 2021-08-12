@@ -24,7 +24,7 @@ export  const GameProvider =({children,...initialState}=props)=>{
       
       useEffect(()=>{
          dispatch(t3Types.initial());
-         dispatch(gmTypes.setCurrentPlayer(state.turn));
+         dispatch(gmTypes.initialGame(state));
       },[])
       
       return (

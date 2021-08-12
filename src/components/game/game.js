@@ -8,6 +8,8 @@ import { useEffect } from "react";
 import { useBackdropDispatch } from "../../shared/backdrop/backdrop-hook";
 import  * as backdropActionTypes from "../../shared/backdrop/backdrop-action";
 import { EndRoundGameModal } from "./modal/endround-game-modal";
+import { SoundPlayer } from "../../models/sounds-player";
+import { audios } from "../../helpers/loader/sounds-loader";
 
 const MODAL_KEY ="END_ROUND"
 export const Game =()=>{
@@ -20,6 +22,7 @@ export const Game =()=>{
    },[endRound])
    
    const addModal =()=>{
+      SoundPlayer.playSound(audios.NICE);
       const Modal =   (     
          <EndRoundGameModal 
             state={state}

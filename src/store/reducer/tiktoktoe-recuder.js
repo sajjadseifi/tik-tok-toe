@@ -48,6 +48,7 @@ const nextTrun=(state,action)=>{
 
    if(board.endOfGame()){
       const winState= updateObject(updatedState,checkWinner(updatedState))
+      
       return updateObject(winState,{endRound:true})
    }
    

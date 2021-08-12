@@ -4,9 +4,11 @@ import { useReducer } from "react";
 export const GlobalContext = React.createContext()
 
 export const appMessages = require("../config/message.json");
+export const gameCofnig = require("../config/game.config.json");
 
 const initialState={
-   messages:appMessages
+   messages:appMessages,
+   gameCofnig
 }
 export  const GlobalProvider =({children})=>{
    const [state,dispatch] = useReducer((state)=>state,initialState);

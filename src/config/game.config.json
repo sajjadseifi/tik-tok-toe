@@ -1,0 +1,24 @@
+{
+   "player1":{
+      "name":"بازیکن اول",
+      "score":0,
+      "color":"#ff69b4"
+   },
+   "player2":{
+      "name":"بازیکن دوم",
+      "score":0,
+      "color":"#009ffd"
+   },
+   "currentPlayer":null,
+   "turn":0,
+   "maxRounds":3,
+   "round":1,
+   "playof":false,
+   "playofRounds":0,
+   "gameOver":false,
+   "children":null,
+   "endRound":false,
+   "board":null,
+   "endPlay":false,
+   "winner":null
+}

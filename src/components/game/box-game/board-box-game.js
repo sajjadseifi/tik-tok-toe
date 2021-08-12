@@ -1,14 +1,11 @@
 import React from "react"
-import { useEffect } from "react";
-import { useState } from "react";
 import { StyleSheet } from "react-native";
 import { BORDER } from "../../../constants/size";
 import { useGamePlaySeletor } from "../../../hook/game-hook";
 import { Card } from "../../../shared";
 import { updateObject } from "../../../utils";
-import { PlacePlayer } from "../../player/place-player";
 import { Board } from "../../shared/board";
-import { PlaceBoardView } from "./place-board-view";
+import { BoardRender } from "./board-render";
 
 export  const BoardBoxGame=({size})=>{
    const state = useGamePlaySeletor(state=>state);
@@ -25,14 +22,7 @@ export  const BoardBoxGame=({size})=>{
             <Board
                cols={board.cols}
                rows={board.rows}
-               render={({row,col})=>{
-                  const place = board.places[row][col]
-                  const Rendered = <PlacePlayer board={board} place={place} />
-                  return (
-                     <PlaceBoardView place={place}>
-                        {Rendered}
-                     </PlaceBoardView>
-               )}}
+               render={BoardRender}
             />
          )}
       </Card>  

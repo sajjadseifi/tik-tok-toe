@@ -1,4 +1,4 @@
-import React,{ Fragment, useState } from "react";
+import React,{ Fragment } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { color } from "../../../constants";
 import { Flex } from "../../ui";
@@ -15,11 +15,11 @@ import { WinPlayer } from "../../player/win-plater";
 import { Ninja } from "../../../shared/ninja";
 
 export const EndRoundGameModal=({state,gamePlayDispatch,modalKey})=>{
-   const [close ,setClose]=useState(false);
 
-   const dispatch = useBackdropDispatch();
    const endRoundConf = useGlobalSeletor(state=>state.messages.endRound);
    const {titleHeader} = endRoundConf;
+   const dispatch = useBackdropDispatch();
+
    const onCloseBtn=(key,title,onConfirm=()=>{})=>{
       const Cmp = (
          <ConfirmModal
@@ -35,26 +35,20 @@ export const EndRoundGameModal=({state,gamePlayDispatch,modalKey})=>{
       dispatch(backdropActions.addBackdrop(key,Cmp,true,true));
    }
    
-   const closedBtn= ()=> console.log("Close Game");
-
-   const reRoundBtn = () => gamePlayDispatch(gameActionTypes.reRound())
-   const rePlaytnBtn = () => gamePlayDispatch(gameActionTypes.reRound())
-   
-   const nextRoundBtn = () => gamePlayDispatch(gameActionTypes.nextRound())
-
-   
    const conf = endRoundConfig( {
       messages:endRoundConf,
       onClose:onCloseBtn,
       cbsFunc:{
-         next:nextRoundBtn,
-         reRun:reRoundBtn,
-         play:rePlaytnBtn,
-         exit:closedBtn,
+         next        : ()  => gamePlayDispatch(gameActionTypes.nextRound()),
+         reRun      : ()  => gamePlayDispatch(gameActionTypes.reRound()),
+         newPlay   : ()  => gamePlayDispatch(gameActionTypes.newPlay()),
+         exit         : ()  => console.log("Close Game"),
+         playof      : ()  => gamePlayDispatch(gameActionTypes.playof()),
       }
    });
+   
    return(
-      <ExplosiveModal close={close} onClosed={()=>onClosed(modalKey)}>
+      <ExplosiveModal onClosed={()=>onClosed(modalKey)}>
          <WhiteWindow style={styles.window} shadow>
             <View style={styles.top}>
             <Ninja condition={state.endPlay}>
@@ -70,13 +64,14 @@ export const EndRoundGameModal=({state,gamePlayDispatch,modalKey})=>{
             <Flex evenly style={styles.bottom}>
                <Ninja condition={state.endPlay}>
                         <Fragment>
-                           <ButtonIcon   onPress={rePlaytnBtn}  {...conf.play} />
-                           <ButtonIcon   onPress={closedBtn}  {...conf.exit} />
+                           <ButtonIcon {...conf.newPlay} />
+                           <ButtonIcon {...conf.playof} />
+                           <ButtonIcon  {...conf.exit} />
                         </Fragment>
                         <Fragment>
-                           <ButtonIcon   onPress={nextRoundBtn}  {...conf.next} />
-                           <ButtonIcon   onPress={reRoundBtn}  {...conf.reRun} />
-                           <ButtonIcon   onPress={closedBtn}  {...conf.exit} />
+                           <ButtonIcon {...conf.next} />
+                           <ButtonIcon {...conf.reRun} />
+                           <ButtonIcon  {...conf.exit} />
                         </Fragment>
                </Ninja>
             </Flex>
@@ -84,6 +79,7 @@ export const EndRoundGameModal=({state,gamePlayDispatch,modalKey})=>{
       </ExplosiveModal>
    )
 };
+
 const styles = StyleSheet.create({
    top:{
       alignItems:"center",

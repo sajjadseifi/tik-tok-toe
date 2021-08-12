@@ -30,3 +30,7 @@ export const reRound=()=> reducerAction(actionTypes.RE_GAME_ROUND)
 export const nextTurn=(board)=> reducerAction(actionTypes.GAME_PLAYER_NEXT_TURN,{
    board
 })
+
+export const newPlay =()=> reducerAction(actionTypes.GAME_PLAY_NEW_PLAY)
+
+export const playof =()=> reducerAction(actionTypes.GAME_PLAY_PLATOF)

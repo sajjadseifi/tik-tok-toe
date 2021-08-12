@@ -8,12 +8,7 @@ export const endRoundConfig =({
    cbsFunc
 })=>{
    const {baseModal,confirmed}=messages;
-   const {
-      next=()=>{},
-      reRun=()=>{},
-      exit=()=>{},
-      play=()=>{},
-   } = cbsFunc;
+   const { next, reRun, exit,newPlay,playof } = cbsFunc;
    
    return ({
       next:{
@@ -33,14 +28,22 @@ export const endRoundConfig =({
          backgroundColor:color.white,
          onPress:()=> onClose("reRunTurn",confirmed.reTurn,reRun)
       },
-      play:{
+      newPlay:{
+         Icon:AntIcon,    
+         iconName:baseModal["newPlay:icon"],
+         title:baseModal.newPlay,
+         titleColor:color.white,
+         backgroundColor: color.purple,
+         onPress:()=> onClose("play",confirmed.newPlay,newPlay)
+      }, 
+      playof:{
          type:"outline",
          Icon:AntIcon,    
-         iconName:baseModal["play:icon"],
-         title:baseModal.play,
+         iconName:baseModal["playof:icon"],
+         title:baseModal.playof,
          titleColor:color.purple,
          backgroundColor:color.white,
-         onPress:()=> onClose("play",confirmed.reTurn,play)
+         onPress:()=> onClose("playofTurn",confirmed.playofTurn,playof)
       }, 
       exit:{
          Icon:AntIcon,    

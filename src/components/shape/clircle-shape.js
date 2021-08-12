@@ -1,19 +1,21 @@
 import React from "react";
-import { StyleSheet,View } from "react-native";
+import { StyleSheet } from "react-native";
 import { color as Colors } from "../../constants";
 import { updateObject } from "../../utils";
 import { BaseShape } from "./base-shape";
 import Icon  from "react-native-vector-icons/Entypo"
-export const CircleShape=({color=Colors.black,size=1,onAnimated=()=>{}})=>{
+import { audios } from "../../helpers/loader/sounds-loader";
+export const CircleShape=({color=Colors.black,size,coefficient=1,...props})=>{
    
    const styled = updateObject(styles.circle,{
       borderColor:color,
       borderWidth:size
    });
-
+   
+   const iconSize = Math.ceil(coefficient * (size|| 70));
    return (
-      <BaseShape onAnimated={onAnimated}>
-         <Icon  color={color} name="circle" size={80}  />
+      <BaseShape {...props}  audio={audios.MIXKIT}>
+         <Icon  color={color} name="circle" size={iconSize}  />
       </BaseShape>
    )
 };
