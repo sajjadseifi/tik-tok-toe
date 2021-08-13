@@ -28,7 +28,7 @@ export const PlacePlayer =({place= new Place()})=>{
          >
             {place.player && (
                <View style={styles.sitedPlayer}>
-                  <Shape play  color={place.player.color} />
+                  <Shape play={true}  color={place.player.color} />
                </View>
             )}
          </Cmp>

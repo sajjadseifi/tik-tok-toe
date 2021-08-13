@@ -1,0 +1,42 @@
+{
+   "endRound":{
+      "titleHeader":{
+         "round":"Win this round of the game",
+         "play":"Winner of the game"
+      },
+      "winthoutWinner":"This round is without a winner!",
+      "baseModal":{
+         "next":"Next",
+         "reRun":"Again",
+         "newPlay":"New Game",
+         "playof":"Playof",
+         "exit":"Exit"
+      },
+      "confirmed":{
+         "closed":"Do you want to exit the program?",
+         "reTurn":"Do you want this round of the game to be repeated?",         
+         "nextTurn":"Going to the next step?",
+         "playofTurn":"Do you want to go to the playoffs?",
+         "newPlay":"Do you want to start a new game?"
+      }
+   },
+   "modal":{
+      "confirm":{
+         "ok":"Ok",
+         "cancel":"Cancel"
+      },
+      "exit":{
+         "force":"ایا میخواهید از برنامه خارج شوید",
+         "recomended":"ایا میخواهید از برنامه خارج شوید"
+      }
+   },
+   "screens":{
+      "start":{
+      },
+      "home":{
+         "startGame":"Start Game",
+         "exitApp":"Exit"
+      },
+      "game":{}
+   }
+}

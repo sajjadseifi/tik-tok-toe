@@ -19,7 +19,9 @@ export const BaseShape=({
 
    useEffect(()=>{
       console.log({audio , play})
-      if(audio && play) SoundPlayer.playSound(audio)
+      if(audio && play) {
+         SoundPlayer.playSound(audio)
+      }
    },[audio,play])
 
    const Wrapper =wrapper;

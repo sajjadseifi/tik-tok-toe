@@ -1,25 +1,14 @@
 import React from 'react'
-import { StyleSheet } from 'react-native'
-import { color } from '../constants'
-import { Player } from '../models'
 import { GameProvider } from '../context/game-context'
 import { Game } from '../components/game/game'
-import { CircleShape } from '../components/shape'
-import { TimesShape } from '../components/shape/times-shape'
-
-// const player1 =new Player(1,"sajjad",0,color.hotpink,CircleShape);
-// const player2 =new Player(2,"reza",0,color.lightblue,TimesShape);
+import { GameLoading } from '../components/Loading/game-loading';
 
 export const GamePlayScreen = () => {
   return (
-    <GameProvider>
-      <Game/>
-    </GameProvider>
+    <GameLoading>
+      <GameProvider>
+        <Game/>
+      </GameProvider>
+    </GameLoading>
   )
-}
-
-const styles = StyleSheet.create({
-  container: {
-    padding:30,
-  }
-})
+};

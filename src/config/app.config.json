@@ -1,0 +1,15 @@
+{
+   "screen":{
+      "start":{
+         "startTime":1000,
+         "delayTime":3000,
+         "endTime":1000
+      }
+   },
+   "company":{
+      "name":"deew" 
+   },
+   "apploading":{
+      "delayTodefault":1000
+   }
+}

@@ -1,3 +1,4 @@
+export const reducerAction = (type, payload) => ({ type, ...payload })
 //Game Action
 export const SET_GAME_PLAYER="[SET_GAME_PLAYER]";
 export  const NEXT_GAME_ROUND="[NEXT_GAME_ROUND]";
@@ -17,4 +18,7 @@ export const TIKTOKTOE_CLEAR = "[TIKTOKTOE_CLEAR]";
 export const TIKTOKTOE_CLEAR_BOARD = "[TIKTOKTOE_CLEAR_BOARD]";
 export const TIKTOKTOE_DUMP_BOARD = "[TIKTOKTOE_DUMP_BOARD]";
 export const TIKTOKTOE_WIN= "[TIKTOKTOE_WIN]";
-export const reducerAction = (type, payload) => ({ type, ...payload })
+
+//global
+export const GLOBAL_CHANGE_PAGE ="[GLOBAL_CHANGE_PAGE]";
+export const GLOBAL_CHANGE_LANGUAGE ="[GLOBAL_CHANGE_LANGUAGE]";

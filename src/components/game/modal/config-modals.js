@@ -3,17 +3,18 @@ import AntIcon from 'react-native-vector-icons/AntDesign';
 import EntypoIcon from 'react-native-vector-icons/Entypo';
 
 export const endRoundConfig =({
-   messages,
+   config,
    onClose,
    cbsFunc
 })=>{
+   const {icon,messages}=config;
    const {baseModal,confirmed}=messages;
    const { next, reRun, exit,newPlay,playof } = cbsFunc;
    
    return ({
       next:{
          Icon:AntIcon,    
-         iconName:baseModal["next:icon"],
+         iconName:icon.next,
          title:baseModal.next,
          titleColor:color.white,
          backgroundColor:color.purple,
@@ -22,7 +23,7 @@ export const endRoundConfig =({
       reRun:{
          type:"outline",
          Icon:EntypoIcon,    
-         iconName:baseModal["reRun:icon"],
+         iconName:icon.reRun,
          title:baseModal.reRun,
          titleColor:color.purple,
          backgroundColor:color.white,
@@ -30,7 +31,7 @@ export const endRoundConfig =({
       },
       newPlay:{
          Icon:AntIcon,    
-         iconName:baseModal["newPlay:icon"],
+         iconName:icon.newPlay,
          title:baseModal.newPlay,
          titleColor:color.white,
          backgroundColor: color.purple,
@@ -39,7 +40,7 @@ export const endRoundConfig =({
       playof:{
          type:"outline",
          Icon:AntIcon,    
-         iconName:baseModal["playof:icon"],
+         iconName:icon.playof,
          title:baseModal.playof,
          titleColor:color.purple,
          backgroundColor:color.white,
@@ -47,12 +48,11 @@ export const endRoundConfig =({
       }, 
       exit:{
          Icon:AntIcon,    
-         iconName:baseModal["exit:icon"],
+         iconName:icon.exit,
          title:baseModal.exit,
          titleColor:color.purple,
          backgroundColor:color.white,
          onPress:()=> onClose("closed",confirmed.closed,exit)
-
       },
 })
 };

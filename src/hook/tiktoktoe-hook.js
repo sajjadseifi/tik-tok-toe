@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "../shared/base-hook";
-import { TikTokToeContext,TikTokToeProvider } from "../context/tiktoktoe-context"
+import { TikTokToeContext,TikTokToeProvider } from "../context"
 
 export const useTikTokToeDispatch = () =>
  useDispatch(TikTokToeContext, "useTikTokToeDispatch", TikTokToeProvider.name)

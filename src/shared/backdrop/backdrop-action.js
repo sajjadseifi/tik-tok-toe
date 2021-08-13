@@ -36,3 +36,15 @@ export const appendConfigureAnimate = (configure) => reducerAction(BACKDROP_APPE
 export const appendBackdropStyle = (backdropStyle) => reducerAction(BACKDROP_APPEND_BACKDROPSTYLE,{
    backdropStyle
 });
+
+// export const exit = (force=false,dispatch=()=>{})=>{
+//    const exitKey = "exit-app"; 
+
+//    const content = (<ConfirmModal 
+//          question="ایا مخیواهید از برنامه خارج شوید"
+//          modalKey={exitKey}
+//          onConfirmed={()=>setTimeout(() => BackHandler.exitApp(),1000)}
+//    /> )
+
+//    dispatch(addBackdrop(exitKey,content,true,true));
+// }

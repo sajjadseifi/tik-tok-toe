@@ -10,6 +10,7 @@ import  * as backdropActionTypes from "../../shared/backdrop/backdrop-action";
 import { EndRoundGameModal } from "./modal/endround-game-modal";
 import { SoundPlayer } from "../../models/sounds-player";
 import { audios } from "../../helpers/loader/sounds-loader";
+import { NavbarHeader } from "../navbar/navbar-header";
 
 const MODAL_KEY ="END_ROUND"
 export const Game =()=>{
@@ -34,7 +35,8 @@ export const Game =()=>{
       dispatch(backdropActionTypes.addBackdrop(MODAL_KEY,Modal,true))
    };
    return(
-      <GamePlayContainer style={styles.container}>        
+      <GamePlayContainer style={styles.container}>   
+         <NavbarHeader language exist />     
         <TopGame />
         <ContainerBoxGame/>
     </GamePlayContainer>

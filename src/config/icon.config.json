@@ -1,0 +1,24 @@
+{
+   "endRound":{
+      "baseModal":{
+         "next":"caretleft",
+         "reRun":"ccw",
+         "newPlay":"play",
+         "playof":"clockcircle",
+         "exit":"close"
+      }
+   },
+   "modal":{
+      "confirm":{
+         "cancel":"remove",
+         "ok":"check"
+      }
+   },
+   "screens":{
+      "start":{},
+      "home":{
+         "startGame":"gamepad",
+         "exitApp":"exit"
+      }
+   }
+}

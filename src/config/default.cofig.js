@@ -1,6 +1,9 @@
 import { Player } from "../models";
 import {CircleShape,TimesShape} from "../components/shape" 
-const gameConfigs = require("./game.config.json");
+const app    =require("./app.config.json");
+const icon  =require("./icon.config.json");
+export const gameConfigs = require("./game.config.json");
+
 const {player1,player2} = gameConfigs;
 
 export const defaultGameCfig = {
@@ -20,4 +23,13 @@ export const defaultGameCfig = {
       ,TimesShape
    ),
 }
-export {gameConfigs}
+export const languages = {
+   fa:require("./fa.config.json"),
+   en:require("./en.config.json"),
+};
+
+export const appMessages  ={...languages.fa};
+export {
+   icon,
+   app
+}

@@ -1,5 +1,5 @@
 import React from "react";
-import {  StyleSheet, View } from "react-native";
+import {  StyleSheet } from "react-native";
 import { ExplosiveModal } from "./explosive-modal";
 import { WhiteWindow } from "../ui/white-window";
 import { APP_WIDTH } from "../../constants/size";
@@ -8,7 +8,6 @@ import * as backdropActions from "../backdrop/backdrop-action"
 import { useBackdropDispatch, useBackdropSeletor } from "../backdrop/backdrop-hook";
 import { useGlobalSeletor } from "../../hook/global-hook";
 import { TitleModal } from "./title-modal";
-import { color } from "../../constants";
 import { ButtonIcon } from "../ui/button-icon";
 import { confirmConfig } from "./config";
 
@@ -21,8 +20,8 @@ export const ConfirmModal=({
    onConfirmed=()=>{},
    onCancel=()=>{},
 })=>{
-   const {contents}  = useBackdropSeletor(state=>state);
    const confMessages = useGlobalSeletor(state=>state.messages.modal.confirm);
+   const {contents}  = useBackdropSeletor(state=>state);
    const findIndex = contents.findIndex(c=>`${c.key}` == `${modalKey}`);
    const close = !(findIndex < 0 ? false :contents[findIndex].show);
    

@@ -8,17 +8,19 @@ import * as backdropActions  from "../../../shared/backdrop/backdrop-action";
 import { ConfirmModal } from "../../../shared/modal/confirm-modal";
 import * as gameActionTypes from "../../../store/actions/game-action";
 import { WhiteWindow } from "../../../shared/ui/white-window";
-import { useGlobalSeletor } from "../../../hook/global-hook";
+import { useGlobalDispatch, useGlobalSeletor } from "../../../hook/global-hook";
+import * as globalActions from "../../../store/actions/global-actions";
 import { ButtonIcon } from "../../../shared/ui/button-icon";
 import { endRoundConfig } from "./config-modals";
 import { WinPlayer } from "../../player/win-plater";
 import { Ninja } from "../../../shared/ninja";
 
 export const EndRoundGameModal=({state,gamePlayDispatch,modalKey})=>{
+   const {messages,icon} = useGlobalSeletor(state=>state);
+   const {titleHeader} = messages.endRound;
 
-   const endRoundConf = useGlobalSeletor(state=>state.messages.endRound);
-   const {titleHeader} = endRoundConf;
    const dispatch = useBackdropDispatch();
+   const dispatchGlobal = useGlobalDispatch();
 
    const onCloseBtn=(key,title,onConfirm=()=>{})=>{
       const Cmp = (
@@ -36,13 +38,16 @@ export const EndRoundGameModal=({state,gamePlayDispatch,modalKey})=>{
    }
    
    const conf = endRoundConfig( {
-      messages:endRoundConf,
+      config:{
+         messages:messages.endRound,
+         icon,
+      },
       onClose:onCloseBtn,
       cbsFunc:{
          next        : ()  => gamePlayDispatch(gameActionTypes.nextRound()),
          reRun      : ()  => gamePlayDispatch(gameActionTypes.reRound()),
          newPlay   : ()  => gamePlayDispatch(gameActionTypes.newPlay()),
-         exit         : ()  => console.log("Close Game"),
+         exit         : ()  => dispatchGlobal(globalActions.changePage("start")),
          playof      : ()  => gamePlayDispatch(gameActionTypes.playof()),
       }
    });
@@ -65,7 +70,7 @@ export const EndRoundGameModal=({state,gamePlayDispatch,modalKey})=>{
                <Ninja condition={state.endPlay}>
                         <Fragment>
                            <ButtonIcon {...conf.newPlay} />
-                           <ButtonIcon {...conf.playof} />
+                           {!state.winner && <ButtonIcon {...conf.playof} />}
                            <ButtonIcon  {...conf.exit} />
                         </Fragment>
                         <Fragment>
