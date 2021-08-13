@@ -7,7 +7,6 @@ import { useBackdropDispatch } from "../../shared/backdrop/backdrop-hook";
 import { ConfirmModal } from "../../shared/modal/confirm-modal";
 
 export const Exit=({force,style={},children})=>{
-   console.log({force})
    
    const {force:asForce,recomended} = useGlobalSeletor(state=>state.messages.modal.exit);
    const dispatch = useGlobalDispatch();

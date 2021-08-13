@@ -36,7 +36,7 @@ export const Game =()=>{
    };
    return(
       <GamePlayContainer style={styles.container}>   
-         <NavbarHeader language exist />     
+         <NavbarHeader />     
         <TopGame />
         <ContainerBoxGame/>
     </GamePlayContainer>

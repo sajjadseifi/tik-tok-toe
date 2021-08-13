@@ -12,7 +12,7 @@
    "currentPlayer":null,
    "turn":0,
    "maxRounds":3,
-   "round":1,
+   "round":2,
    "playof":false,
    "playofRounds":0,
    "gameOver":false,

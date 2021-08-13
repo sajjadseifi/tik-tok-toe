@@ -14,7 +14,6 @@ export  const BoardBoxGame=({size})=>{
       width:size,
       height:size
    });
-   
 
    return (
       <Card dashed style={conainerStyle}>

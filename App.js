@@ -2,7 +2,7 @@ import React from 'react'
 import AppLoading from "expo-app-loading"
 import { StatusBar } from 'expo-status-bar'
 import { useEffect } from "react"
-import { StyleSheet, View } from 'react-native'
+import { StyleSheet, Text, View } from 'react-native'
 import { useState } from 'react/cjs/react.development'
 import { GlobalProvider } from './src/context/global-context'
 import { imageLoader } from "./src/helpers/loader/image-loader"
@@ -10,6 +10,7 @@ import { soundsLoader } from "./src/helpers/loader/sounds-loader"
 import { SoundPlayer } from "./src/models/sounds-player"
 import { Screens } from "./src/screens/screens"
 import { Backdrop } from './src/shared/backdrop/backdrop'
+import { Asset } from 'react-native-unimodules'
 // import * as Font from "expo-font"
 
 const loadAssets  = ()=>{
@@ -26,22 +27,29 @@ const loadAssets  = ()=>{
 //     "dana-ultrabold":require("./src/assets/fonts/dana-ultrabold.ttf"),
 // })
 };
+async function _cacheResourcesAsync() {
+  const sounds = SoundPlayer.load(soundsLoader())
+  const images =  imageLoader();
+
+  const cacheImages = images.map(image => {
+    return Asset.fromModule(image).downloadAsync();
+  }); 
+  return Promise.all([...cacheImages,...sounds]);
+}
+
 export default function App() {
   const [isReady,setIsReady]=useState(false);
- const [imageReady,setImageReady]=useState(false);
   
- if(!imageReady){
-   imageLoader();
-   setImageReady(true);
- }
-
   if(!isReady)
     return (
       <AppLoading
-        startAsync={loadAssets}
+        startAsync={_cacheResourcesAsync}
         onFinish={() => setIsReady(true)}
-        onError={console.warn}
-      />
+        onError={console.warn}>
+         <View style={{flex:1,alignItems:"center",justifyContent:"center" }}>
+          <Text>LAODING...</Text>
+         </View>
+        </AppLoading>
   );   
   return (
     <GlobalProvider page="start">

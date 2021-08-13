@@ -42,6 +42,8 @@ export const startPlayof=(state)=> updateObject(state,{playof:true,playofRounds:
 export const nextRoundWithKey=(state,key) => updateObject(state,{ [key]:state[key] + 1});
 
 
+export const getTurn =(round,playof=0)=> (round + playof -1) % 2;
+
 export const updateScore =(state)=> {
    const {player1,player2,turn,board} = state;
 

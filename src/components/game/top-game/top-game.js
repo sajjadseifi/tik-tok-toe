@@ -6,12 +6,12 @@ import { TopGameCenter } from "./top-game-center";
 import { TopGamePlayer } from "./top-game-player";
 
 export const TopGame = () =>{
-   const {player1,player2,round,maxRounds } =useGamePlaySeletor(state=>state);
+   const {player1,player2,round,maxRounds,playofRounds } =useGamePlaySeletor(state=>state);
 
    return(
       <Flex   between style={styles.topGame}>
             <TopGamePlayer style={styles.player1} player={player1}/>
-            <TopGameCenter maxRounds={maxRounds} rounds={round}/>
+            <TopGameCenter {...{playofRounds,maxRounds,round}} />
             <TopGamePlayer right={true} style={styles.player2} player={player2}/>
       </Flex>
    )

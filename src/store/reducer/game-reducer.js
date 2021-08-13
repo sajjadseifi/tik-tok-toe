@@ -1,6 +1,6 @@
 import * as actionTypes  from "../actions/action-types";
 import {ifExistenceComing, updateObject} from "../../utils"
-import { clearBoard, gameOver, nextRoundWithKey, setCurrentPlayer, startPlayof, updateScore } from "./functionality";
+import { clearBoard, gameOver, getTurn, nextRoundWithKey, setCurrentPlayer, startPlayof, updateScore } from "./functionality";
 import { tiktoktoeReducer } from "./tiktoktoe-recuder";
 import { defaultGameCfig } from "../../config/default.cofig";
 import { TikTokToe } from "../../models/ticktoktoe";
@@ -25,24 +25,30 @@ export const gameReducer =(state=initialGameState,action)=>{
 }
 
 const init=(state,action)=>{
-   const {player1,player2,turn,maxRounds}=action;
-
+   const {player1,player2,maxRounds}=action;
+   const round = action.round ? action.round : state.round ;
+   
+   console.log({round})
+   
    const gift = {
       player1:Player.restScorePlayer(player1),
       player2:Player.restScorePlayer(player2),
-      turn,
+      turn:getTurn(round),
       maxRounds,
    };
    
    let updatedState = ifExistenceComing(state,gift)
+   console.log({
+      updatedState
+   });
    return  setCurrentPlayer(updatedState, updatedState.turn)
 }
 
 const next=(state,_)=>{
    const {player1,player2} =state;
    const newRound = (state.round+1);
-   const newTurn = (newRound-1) % 2;
-      
+   const newTurn = getTurn(newRound);
+   
    let updatedState =  updateScore(state)
    updatedState = clearBoard(updatedState)
 
@@ -72,7 +78,18 @@ const reRoundGame=(state,_)=>{
    return setCurrentPlayer(updatedBoard,newTurn)   
 };
 
-const startPlayofGame =()=> next(state);
+const startPlayofGame = (state) =>{
+   const {round,playofRounds} = state;
+   const newTurn =   getTurn(round,playofRounds);
+   let updatedState = clearBoard(state)
+   
+   return updateObject(
+      setCurrentPlayer(updatedState,newTurn),{
+      playof:true,
+      playofRounds:state.playofRounds+1,
+      turn:newTurn
+   });    
+}
 
 const startNewPlay = (state,action)=>{
 

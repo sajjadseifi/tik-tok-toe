@@ -35,8 +35,15 @@
       },
       "home":{
          "startGame":"شروع بازی",
+         "changeLanguage":"تغییر زبان",
          "exitApp":"خروج"
       },
-      "game":{}
+      "game":{
+         "round":"مرحله"
+      }
+   },
+   "language":{
+      "en":"اِن",
+      "fa":"فا"
    }
 }

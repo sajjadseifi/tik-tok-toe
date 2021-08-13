@@ -1,4 +1,4 @@
-import { appMessages,gameConfigs,icon,app } from "../../config/default.cofig";
+import { appMessages,gameConfigs,icon,app, languages } from "../../config/default.cofig";
 import { screenKeys } from "../../constants/app";
 import { updateObject } from "../../utils";
 import * as actionTypes  from "../actions/action-types";
@@ -8,6 +8,7 @@ export const initialGlobalState={
    gameCofnig:gameConfigs,
    app,
    icon,
+   lang:app.language.persian,
    page:"start",
 }
 export const globalReducer=(state=initialState,action)=>{
@@ -28,5 +29,11 @@ const changePage=(state,action)=>{
 }
 
 const changeLanguage=(state,action)=>{
+   const {lang} =action;
+   if(!languages[lang]) return state;
 
+   return updateObject(state,{
+      messages:languages[lang],
+      lang
+   })
 }

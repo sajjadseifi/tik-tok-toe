@@ -1,17 +1,16 @@
 import React from "react";
-import  { StyleSheet, View,BackHandler, Pressable} from "react-native";
+import  { StyleSheet, View} from "react-native";
 import { Button } from "react-native-elements";
 import LinearGradient from "react-native-linear-gradient";
 import FontAwesome from "react-native-vector-icons/FontAwesome"
 import Ionicons from "react-native-vector-icons/Ionicons"
 import color from "../constants/color";
 import { APP_WIDTH } from "../constants/size";
-import { useBackdropDispatch } from "../shared/backdrop/backdrop-hook";
-import { ConfirmModal } from "../shared/modal/confirm-modal";
-import * as bkActions  from "../shared/backdrop/backdrop-action"
 import * as globActions  from "../store/actions/global-actions"
 import { useGlobalDispatch, useGlobalSeletor } from "../hook/global-hook";
 import { Exit } from "../components/shared/exit";
+import { NavbarHeader } from "../components/navbar/navbar-header";
+import { LanguageChanger } from "../components/shared/language-changer";
 
 const HomeButton =({title,color="blue",Icon,iconName,onPress=()=>{}})=>{
    const  buttonStyle ={
@@ -39,7 +38,7 @@ const HomeButton =({title,color="blue",Icon,iconName,onPress=()=>{}})=>{
    )  
 }
 export const HomeScreen = ({})=>{
-   const {startGame,exitApp} = useGlobalSeletor(state=>state.messages.screens.home);
+   const homeDetail = useGlobalSeletor(state=>state.messages.screens.home);
    const homeIcon = useGlobalSeletor(state=>state.icon.screens.home);
    const dispatchGlobal = useGlobalDispatch();
 
@@ -50,20 +49,27 @@ export const HomeScreen = ({})=>{
       start={{x: 0, y: 0}} 
       end={{x:1, y: 1}}
       style={styles.home} 
-      colors={[color.gold,color.orange]} 
-      >    
-      <View>
+      colors={[color.gold,color.orange]} >
+      <View style={{flex:1,alignItems:"center",justifyContent:"center"}}>   
          <View style={styles.buttonGroup}>
             <HomeButton 
-               title={startGame}
+               title={homeDetail.startGame}
                iconName={homeIcon.startGame}
                color={color.black}
                Icon={FontAwesome}
                onPress={goToGame}
             />
+            <LanguageChanger>
+               <HomeButton 
+                  title={homeDetail.changeLanguage}
+                  iconName={homeIcon.changeLanguage}
+                  color={color.red}
+                  Icon={Ionicons}
+               />           
+            </LanguageChanger>
             <Exit force>
                <HomeButton 
-                  title={exitApp}
+                  title={homeDetail.exitApp}
                   iconName={homeIcon.exitApp}
                   color={color.rebeccapurple}
                   Icon={Ionicons}
@@ -80,9 +86,11 @@ const styles = StyleSheet.create({
       flex:1,
       alignItems:"center",
       justifyContent:"center",
+      padding:20,
+      paddingVertical:40,
    },
    homeButton:{
-      width:APP_WIDTH * 2/3 ,
+      width:APP_WIDTH * 3/4 ,
       marginVertical:10,
    },
    homeBtnTitle:{

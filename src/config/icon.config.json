@@ -18,7 +18,8 @@
       "start":{},
       "home":{
          "startGame":"gamepad",
-         "exitApp":"exit"
+         "exitApp":"exit",
+         "changeLanguage":"globe"
       }
    }
 }

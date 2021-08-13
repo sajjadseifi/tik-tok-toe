@@ -24,10 +24,10 @@
       "confirm":{
          "ok":"Ok",
          "cancel":"Cancel"
-      },
+      },      
       "exit":{
-         "force":"ایا میخواهید از برنامه خارج شوید",
-         "recomended":"ایا میخواهید از برنامه خارج شوید"
+         "force":"Do you want to exit the program?",
+         "recomended":"Do you want to exit the program?"
       }
    },
    "screens":{
@@ -35,8 +35,15 @@
       },
       "home":{
          "startGame":"Start Game",
+         "changeLanguage":"Cahnge Language",
          "exitApp":"Exit"
       },
-      "game":{}
+      "game":{
+         "round":"Rounds"
+      }
+   },
+   "language":{
+      "en":"En",
+      "fa":"Fa"
    }
 }

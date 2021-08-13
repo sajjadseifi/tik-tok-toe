@@ -3,10 +3,9 @@ import { StyleSheet, Text, View } from "react-native";
 import { color } from "../../constants";
 import { TextJumber } from "../../shared/animate";
 
-export const RoundGame =({rounds,maxRounds})=>{
+export const RoundGame =({rounds,maxRounds})=>{   
    rounds=`${rounds}`;
    maxRounds=`${maxRounds}`;
-
    return (
       <View style={styles.gameRounds}>
          <TextJumber defaultValue={0} text={rounds} style={styles.round} />
