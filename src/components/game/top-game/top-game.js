@@ -18,8 +18,6 @@ export const TopGame = () =>{
 }
 
 const styles = StyleSheet.create({
-      topGame:{
-      },
       player1:{
             alignItems:"flex-start"
       },

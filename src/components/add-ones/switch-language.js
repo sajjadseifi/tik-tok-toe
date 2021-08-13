@@ -11,7 +11,6 @@ export const SwitchLanguage =()=>{
    const dispatch  = useGlobalDispatch();
 
    const swtichHandler =()=>{
-      console.log("SWITCH")
       let lang =  (appLang == "fa") ? "en" : "fa";
       dispatch(globalActions.changeLanguage(lang))
    };

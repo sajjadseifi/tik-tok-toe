@@ -18,7 +18,4 @@ const styles = StyleSheet.create({
          width:"30%",
          maxWidth:"30%"      
       },
-      myTurn:{
-         marginTop:20
-      }
 });

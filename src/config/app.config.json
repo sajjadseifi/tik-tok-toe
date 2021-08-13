@@ -13,8 +13,7 @@
       "delayTodefault":1000
    },
    "language":{
-      "english":"en",
-      "persian":"fa"
-   },
-   "defaultLanguage":"fa"
+      "en":"english",
+      "fa":"فارسی"
+   }
 }

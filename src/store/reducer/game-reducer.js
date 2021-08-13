@@ -28,7 +28,6 @@ const init=(state,action)=>{
    const {player1,player2,maxRounds}=action;
    const round = action.round ? action.round : state.round ;
    
-   console.log({round})
    
    const gift = {
       player1:Player.restScorePlayer(player1),
@@ -38,9 +37,7 @@ const init=(state,action)=>{
    };
    
    let updatedState = ifExistenceComing(state,gift)
-   console.log({
-      updatedState
-   });
+
    return  setCurrentPlayer(updatedState, updatedState.turn)
 }
 

@@ -9,15 +9,14 @@ import { APP_WIDTH } from "../constants/size";
 import * as globActions  from "../store/actions/global-actions"
 import { useGlobalDispatch, useGlobalSeletor } from "../hook/global-hook";
 import { Exit } from "../components/shared/exit";
-import { NavbarHeader } from "../components/navbar/navbar-header";
 import { LanguageChanger } from "../components/shared/language-changer";
+import { updateObject } from "../utils";
+import { LanguagesBox } from "../components/language/languages-box";
 
 const HomeButton =({title,color="blue",Icon,iconName,onPress=()=>{}})=>{
-   const  buttonStyle ={
-      backgroundColor:color,
-      borderRadius:10,
-      paddingHorizontal:15,
-   }
+   const  buttonStyle = updateObject(styles.buttonStyle,{
+      backgroundColor:color
+   });
    const icon =(
          <Icon
             style={styles.icon}
@@ -77,6 +76,7 @@ export const HomeScreen = ({})=>{
             </Exit>
          </View>
       </View>
+      <LanguagesBox/>
    </LinearGradient>
    )
 };
@@ -95,10 +95,14 @@ const styles = StyleSheet.create({
    },
    homeBtnTitle:{
       flex:1,
-      fontSize:24,
-      fontWeight:"bold",
+      fontSize:22,
    },
    icon:{
       color:color.white,
+   },
+   buttonStyle:{
+      borderRadius:10,
+      paddingHorizontal:15,
+      height:56,
    }
 });

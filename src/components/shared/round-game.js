@@ -24,10 +24,10 @@ const styles = StyleSheet.create({
       paddingHorizontal:10,
       color:color.white,
       fontWeight:"bold",
-      fontSize:22,
+      fontSize:32,
    },
    round:{
-      fontSize:22,
+      fontSize:32,
       fontWeight:"bold",
       color:"#ccc"
    }
