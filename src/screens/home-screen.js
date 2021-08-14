@@ -1,40 +1,14 @@
 import React from "react";
 import  { StyleSheet, View} from "react-native";
-import { Button } from "react-native-elements";
 import LinearGradient from "react-native-linear-gradient";
-import FontAwesome from "react-native-vector-icons/FontAwesome"
-import Ionicons from "react-native-vector-icons/Ionicons"
 import color from "../constants/color";
 import { APP_WIDTH } from "../constants/size";
 import * as globActions  from "../store/actions/global-actions"
 import { useGlobalDispatch, useGlobalSeletor } from "../hook/global-hook";
-import { Exit } from "../components/shared/exit";
-import { LanguageChanger } from "../components/shared/language-changer";
-import { updateObject } from "../utils";
+import { Seperator } from "../components/shared/seprator";
+import { HomeLogo } from "../components/home/logo";
+import { FormHome } from "../components/home/form";
 
-const HomeButton =({title,color="blue",Icon,iconName,onPress=()=>{}})=>{
-   const  buttonStyle = updateObject(styles.buttonStyle,{
-      backgroundColor:color
-   });
-   const icon =(
-         <Icon
-            style={styles.icon}
-            color={color.white}
-            name={iconName}
-            size={30}
-         />
-   )
-   return (
-         <Button 
-            onPress={onPress}
-            containerStyle={styles.homeButton}
-            buttonStyle={buttonStyle}
-            titleStyle={styles.homeBtnTitle}
-            title={title}
-            icon={icon}
-         />
-   )  
-}
 export const HomeScreen = ({})=>{
    const homeDetail = useGlobalSeletor(state=>state.messages.screens.home);
    const homeIcon = useGlobalSeletor(state=>state.icon.screens.home);
@@ -42,38 +16,17 @@ export const HomeScreen = ({})=>{
    const goToGame=()=>dispatchGlobal(globActions.changePage("game"));
 
    return (
-      <LinearGradient 
-      start={{x: 0, y: 0}} 
-      end={{x:1, y: 1}}
-      style={styles.home} 
-      colors={[color.gold,color.orange]} >
-      <View style={{flex:1,alignItems:"center",justifyContent:"center"}}>   
-         <View style={styles.buttonGroup}>
-            <HomeButton 
-               title={homeDetail.startGame}
-               iconName={homeIcon.startGame}
-               color={color.black}
-               Icon={FontAwesome}
-               onPress={goToGame}
-            />
-            <LanguageChanger>
-               <HomeButton 
-                  title={homeDetail.changeLanguage}
-                  iconName={homeIcon.changeLanguage}
-                  color={color.red}
-                  Icon={Ionicons}
-               />           
-            </LanguageChanger>
-            <Exit force>
-               <HomeButton 
-                  title={homeDetail.exitApp}
-                  iconName={homeIcon.exitApp}
-                  color={color.rebeccapurple}
-                  Icon={Ionicons}
-               />
-            </Exit>
+      <LinearGradient   
+      start={{x: 0, y: 0}}  
+      end={{x:1, y: 1}} 
+      style={styles.home}  
+      colors={[color.gold,color.orange]} 
+      >
+         <View style={styles.content}>   
+            <HomeLogo  />
+            <Seperator row={false} space={20}/>
+            <FormHome {...{goToGame, homeIcon, homeDetail}}/>
          </View>
-      </View>
    </LinearGradient>
    )
 };
@@ -86,20 +39,9 @@ const styles = StyleSheet.create({
       padding:20,
       paddingVertical:40,
    },
-   homeButton:{
-      width:APP_WIDTH * 3/4 ,
-      marginVertical:10,
-   },
-   homeBtnTitle:{
+   content:{
       flex:1,
-      fontSize:22,
-   },
-   icon:{
-      color:color.white,
-   },
-   buttonStyle:{
-      borderRadius:10,
-      paddingHorizontal:15,
-      height:56,
+      alignItems:"center",
+      justifyContent:"center"
    }
 });
