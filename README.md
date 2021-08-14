@@ -6,11 +6,17 @@
 <br/><br/>
 
 # Company & Home Page 
-<div style="display:flex;">
-<img style="flex:1;" src="https://github.com/sajjadseifi/tik-tok-toe/blob/master/overview/1.png?raw=true" alt="1">
 
-<img style="flex:1;" src="https://github.com/sajjadseifi/tik-tok-toe/blob/master/overview/0.png?raw=true" alt="0">
-</div>
+<table>
+      <tr>
+         <td>
+            <img src="https://github.com/sajjadseifi/tik-tok-toe/blob/master/overview/1.png?raw=true" alt="1">
+         </td>
+         <td>
+            <img src="https://github.com/sajjadseifi/tik-tok-toe/blob/master/overview/0.png?raw=true" alt="0">
+         </td>
+      </tr>
+</table>
 
 # Language Section
 
