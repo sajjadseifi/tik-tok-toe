@@ -19,32 +19,59 @@
 </table>
 
 # Language Section
-
-<img src="https://github.com/sajjadseifi/tik-tok-toe/blob/master/overview/2.png?raw=true" alt="2">
-<img src="https://github.com/sajjadseifi/tik-tok-toe/blob/master/overview/3.png?raw=true" alt="3">
-<img src="https://github.com/sajjadseifi/tik-tok-toe/blob/master/overview/11.png?raw=true" alt="11">
-<img src="https://github.com/sajjadseifi/tik-tok-toe/blob/master/overview/12.png?raw=true" alt="12">
+<table>
+      <tr>
+         <td>
+            <img src="https://github.com/sajjadseifi/tik-tok-toe/blob/master/overview/2.png?raw=true" alt="2">
+         </td>
+         <td>
+            <img src="https://github.com/sajjadseifi/tik-tok-toe/blob/master/overview/3.png?raw=true" alt="3">
+         </td>
+         <td>
+               <img src="https://github.com/sajjadseifi/tik-tok-toe/blob/master/overview/11.png?raw=true" alt="11">
+         </td>
+         <td>
+            <img src="https://github.com/sajjadseifi/tik-tok-toe/blob/master/overview/12.png?raw=true" alt="12">
+         </td>
+      </tr>
+</table>
 
 
 # Game Play
 
-![alt text](https://github.com/sajjadseifi/tik-tok-toe/blob/master/overview/4.png?raw=true)
-
-![alt text](https://github.com/sajjadseifi/tik-tok-toe/blob/master/overview/5.png?raw=true)
-
-![alt text](https://github.com/sajjadseifi/tik-tok-toe/blob/master/overview/6.png?raw=true)
-
-![alt text](https://github.com/sajjadseifi/tik-tok-toe/blob/master/overview/7.png?raw=true)
-
-![alt text](https://github.com/sajjadseifi/tik-tok-toe/blob/master/overview/8.png?raw=true)
-
-
-![alt text](https://github.com/sajjadseifi/tik-tok-toe/blob/master/overview/13.png?raw=true)
-
-![alt text](https://github.com/sajjadseifi/tik-tok-toe/blob/master/overview/14.png?raw=true)
-
-![alt text](https://github.com/sajjadseifi/tik-tok-toe/blob/master/overview/15.png?raw=true)
-
-![alt text](https://github.com/sajjadseifi/tik-tok-toe/blob/master/overview/16.png?raw=true)
-
-![alt text](https://github.com/sajjadseifi/tik-tok-toe/blob/master/overview/17.png?raw=true)
+<table>
+      <tr>
+         <td>
+            <img src="https://github.com/sajjadseifi/tik-tok-toe/blob/master/overview/4.png?raw=true" alt="4">
+         </td>
+         <td>
+            <img src="https://github.com/sajjadseifi/tik-tok-toe/blob/master/overview/5.png?raw=true" alt="5">
+         </td>
+         <td>
+               <img src="https://github.com/sajjadseifi/tik-tok-toe/blob/master/overview/6.png?raw=true" alt="6">
+         </td>
+         <td>
+            <img src="https://github.com/sajjadseifi/tik-tok-toe/blob/master/overview/7.png?raw=true" alt="7">
+         </td>
+         <td>
+            <img src="https://github.com/sajjadseifi/tik-tok-toe/blob/master/overview/8.png?raw=true" alt="8">
+         </td>
+      </tr>
+      <tr>
+         <td>
+            <img src="https://github.com/sajjadseifi/tik-tok-toe/blob/master/overview/13.png?raw=true" alt="13">
+         </td>
+         <td>
+            <img src="https://github.com/sajjadseifi/tik-tok-toe/blob/master/overview/14.png?raw=true" alt="14">
+         </td>
+         <td>
+               <img src="https://github.com/sajjadseifi/tik-tok-toe/blob/master/overview/15.png?raw=true" alt="15">
+         </td>
+         <td>
+            <img src="https://github.com/sajjadseifi/tik-tok-toe/blob/master/overview/16.png?raw=true" alt="16">
+         </td>
+         <td>
+            <img src="https://github.com/sajjadseifi/tik-tok-toe/blob/master/overview/17.png?raw=true" alt="17">
+         </td>
+      </tr>
+</table>
