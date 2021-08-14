@@ -16,7 +16,11 @@ export const TextJumber  =({style={},defaultValue ="",text=""})=>{
 
       return(
           <View style={styles.container}>
-            <ScaleAnimate afterAnimated={()=>setState(text.toString())} scales={textJ} show={checkShow}  >
+            <ScaleAnimate 
+               afterAnimated={()=>setState(text.toString())} 
+               scales={textJ} 
+               show={checkShow}
+              >
                <Animated.Text style={[styles.same,styles.orginal,style]}>{state}</Animated.Text>
             </ScaleAnimate>
          </View>

@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { GamePlayContainer } from '../container'
 import { TopGame } from './top-game/top-game'
 import {  useGamePlayDispatch, useGamePlaySeletor } from "../../hook/game-hook";
@@ -38,13 +38,19 @@ export const Game =()=>{
       <GamePlayContainer style={styles.container}>   
          <NavbarHeader />     
         <TopGame />
-        <ContainerBoxGame/>
+        <View style={styles.gamePlayContianer}>
+            <ContainerBoxGame/>
+        </View>
     </GamePlayContainer>
    )
 };
 
 const styles = StyleSheet.create({
    container:{
-      padding:30
-   }
+      padding:30,
+   },
+   gamePlayContianer:{
+      padding:20,
+      flex:1,
+   },
 });

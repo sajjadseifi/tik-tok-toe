@@ -7,10 +7,10 @@ export const endRoundConfig =({
    onClose,
    cbsFunc
 })=>{
-   const {icon,messages}=config;
+   const {messages}=config;
    const {baseModal,confirmed}=messages;
    const { next, reRun, exit,newPlay,playof } = cbsFunc;
-   
+   const icon  = config.icon.endRound.baseModal;
    return ({
       next:{
          Icon:AntIcon,    

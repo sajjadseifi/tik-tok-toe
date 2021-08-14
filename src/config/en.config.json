@@ -43,7 +43,12 @@
       }
    },
    "language":{
-      "en":"En",
-      "fa":"Fa"
+      "en":"English",
+      "fa":"Persian",
+      "ar":"Arabic",
+      "gm":"German",
+      "us":"United State",
+      "nl":"Netherland",
+      "ab":"Ab"
    }
 }

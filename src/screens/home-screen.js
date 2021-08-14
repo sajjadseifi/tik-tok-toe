@@ -11,7 +11,6 @@ import { useGlobalDispatch, useGlobalSeletor } from "../hook/global-hook";
 import { Exit } from "../components/shared/exit";
 import { LanguageChanger } from "../components/shared/language-changer";
 import { updateObject } from "../utils";
-import { LanguagesBox } from "../components/language/languages-box";
 
 const HomeButton =({title,color="blue",Icon,iconName,onPress=()=>{}})=>{
    const  buttonStyle = updateObject(styles.buttonStyle,{
@@ -40,7 +39,6 @@ export const HomeScreen = ({})=>{
    const homeDetail = useGlobalSeletor(state=>state.messages.screens.home);
    const homeIcon = useGlobalSeletor(state=>state.icon.screens.home);
    const dispatchGlobal = useGlobalDispatch();
-
    const goToGame=()=>dispatchGlobal(globActions.changePage("game"));
 
    return (
@@ -76,7 +74,6 @@ export const HomeScreen = ({})=>{
             </Exit>
          </View>
       </View>
-      <LanguagesBox/>
    </LinearGradient>
    )
 };

@@ -32,7 +32,12 @@ export const checkWinner = (state)=>{
    const {player1,player2} = updatedState;
    const winner  = getWinner(player1,player2);
 
-   return updateObject(updatedState,{winner,endPlay})
+   console.log("Player1",player1,"PLayer2",player2);
+
+   return updateObject(updatedState,{
+      winner,
+      endPlay
+   })
 };
 
 export const gameOver=(state)=>updateObject(state,{gameOver:true});

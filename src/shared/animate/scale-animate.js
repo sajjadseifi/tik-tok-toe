@@ -14,6 +14,7 @@ export const ScaleAnimate  =({
    scales=[],
    duration=50,
    show=false,
+   reverse=false,
    afterAnimated=()=>{},
    children,
 })=>{
@@ -42,9 +43,11 @@ export const ScaleAnimate  =({
       setTimeout(() => afterAnimated(), duration);
    }
    const arrayAnimate=()=>{
+      const arr =  reverse ?scales.reverse() : scales;
       const amimate=(isVertical=false,index=1)=>{
-         if(index >=  scales.length || index < 0) return;
-         const {x,y,dx,dy, duration : d} = scales[index];
+         if(index >=  arr.length || index < 0) return;
+         
+         const {x,y,dx,dy, duration : d} = arr[index];
 
          const anim ={
             to :isVertical?vertical:horizontal,
@@ -52,6 +55,7 @@ export const ScaleAnimate  =({
             dur:(isVertical ? dy:dx )  ||  (d || duration),
             recFun:()=>amimate(isVertical,index+1)
          };
+         
          animateTiming(anim.to,anim.val,anim.dur,anim.recFun);
       }
       //horizontal

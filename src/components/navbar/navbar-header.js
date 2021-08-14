@@ -23,7 +23,7 @@ export const NavbarHeader =({forceExit,dark=true})=>{
       <View style={[styles.nav,darkMode]}>
          <Flex between alignCenter>
             <View style={styles.formleft}>
-                  <SwitchLanguage />
+                  <SwitchLanguage  />
             </View>
             <View style={styles.formRight}>
                <ReRoundButton/>
@@ -38,6 +38,7 @@ export const NavbarHeader =({forceExit,dark=true})=>{
 const styles = StyleSheet.create({
    nav:{
       width:"100%",
+      // backgroundColor:"red",
    },
    dark:{
       backgroundColor:"#2f2f2f",
@@ -46,7 +47,6 @@ const styles = StyleSheet.create({
       borderRadius:8
    },
    formleft:{
-
    },
    formRight:{
       flexDirection:"row",

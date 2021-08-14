@@ -27,8 +27,7 @@ export const gameReducer =(state=initialGameState,action)=>{
 const init=(state,action)=>{
    const {player1,player2,maxRounds}=action;
    const round = action.round ? action.round : state.round ;
-   
-   
+      
    const gift = {
       player1:Player.restScorePlayer(player1),
       player2:Player.restScorePlayer(player2),

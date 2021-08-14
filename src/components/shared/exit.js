@@ -8,7 +8,7 @@ import { ConfirmModal } from "../../shared/modal/confirm-modal";
 
 export const Exit=({force,style={},children})=>{
    
-   const {force:asForce,recomended} = useGlobalSeletor(state=>state.messages.modal.exit);
+   const {force:asForce,game} = useGlobalSeletor(state=>state.messages.modal.exit);
    const dispatch = useGlobalDispatch();
    const dispatchBkdrp = useBackdropDispatch();
    const onConfirm=()=>{
@@ -21,7 +21,7 @@ export const Exit=({force,style={},children})=>{
    const exitHandler =()=>{
       const exitKey = "exit"; 
       const content = <ConfirmModal 
-            question={force ?asForce:recomended}
+            question={force ?asForce:game}
             modalKey={exitKey}
             onConfirmed={onConfirm}
       /> 

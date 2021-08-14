@@ -11,6 +11,7 @@ import { SoundPlayer } from "./src/models/sounds-player"
 import { Screens } from "./src/screens/screens"
 import { Backdrop } from './src/shared/backdrop/backdrop'
 import { Asset } from 'react-native-unimodules'
+import { LanguagesBox } from './src/components/language/languages-box'
 // import * as Font from "expo-font"
 
 const loadAssets  = ()=>{

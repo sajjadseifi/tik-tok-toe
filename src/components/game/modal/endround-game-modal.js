@@ -17,6 +17,7 @@ import { Ninja } from "../../../shared/ninja";
 
 export const EndRoundGameModal=({state,gamePlayDispatch,modalKey})=>{
    const {messages,icon} = useGlobalSeletor(state=>state);
+   const {player1,player2} =state;
    const {titleHeader} = messages.endRound;
 
    const dispatch = useBackdropDispatch();
@@ -31,7 +32,6 @@ export const EndRoundGameModal=({state,gamePlayDispatch,modalKey})=>{
                onConfirm();
                dispatch(backdropActions.close(modalKey));
             }}
-            onCancel={()=> {}}
          />
       );
       dispatch(backdropActions.addBackdrop(key,Cmp,true,true));
@@ -60,12 +60,15 @@ export const EndRoundGameModal=({state,gamePlayDispatch,modalKey})=>{
                <Text style={styles.topStaticText}>{titleHeader.play}</Text>
                <Text style={styles.topStaticText}>{titleHeader.round}</Text>
             </Ninja>
-               <WinPlayer 
+            </View>
+            <WinPlayer 
+                  allRounds={state.maxRounds + state.playofRounds}
+                  showScores={state.endPlay}
+                  players={[player1,player2]}
                    textStyle={styles.playerName}
                    currentPlayer={state.endPlay ? state.winner: state.currentPlayer}
                    isWin={state.board.isWin || !!state.winner}
-               />
-            </View>
+            />
             <Flex evenly style={styles.bottom}>
                <Ninja condition={state.endPlay}>
                         <Fragment>

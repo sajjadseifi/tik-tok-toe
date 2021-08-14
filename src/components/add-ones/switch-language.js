@@ -1,24 +1,21 @@
 import React from "react";
-import { StyleSheet } from "react-native";
+import { StyleSheet, Text } from "react-native";
 import {  useGlobalDispatch,useGlobalSeletor} from "../../hook/global-hook";
 import * as  globalActions from "../../store/actions/global-actions"
 import { color } from "../../constants";
 import { TextJumber } from "../../shared/animate";
 import { ScaleButton } from "../../shared/ui/scale-button";
+import { LanguageChanger } from "../shared/language-changer";
 export const SwitchLanguage =()=>{
-   const {language}  = useGlobalSeletor(state=>state.messages);
+   const {language}  = useGlobalSeletor(state=>state.app);
    const appLang  = useGlobalSeletor(state=>state.lang);
-   const dispatch  = useGlobalDispatch();
-
-   const swtichHandler =()=>{
-      let lang =  (appLang == "fa") ? "en" : "fa";
-      dispatch(globalActions.changeLanguage(lang))
-   };
    
    return (
-         <ScaleButton style={styles.container} onPress={swtichHandler}>
-               <TextJumber style={styles.lang} text={language[appLang]} />
+      <LanguageChanger>
+         <ScaleButton style={styles.container}>
+               <TextJumber style={styles.lang} text={`${language[appLang]}`} />
          </ScaleButton>
+      </LanguageChanger>
    )   
 };
 const styles = StyleSheet.create({

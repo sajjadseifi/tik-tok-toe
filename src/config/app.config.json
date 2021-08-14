@@ -4,6 +4,25 @@
          "startTime":1000,
          "delayTime":3000,
          "endTime":1000
+      },
+      "game":{
+         "thisnking":{
+            "thinkTime":4000,
+            "move":{
+               "up":{
+                  "value":-40,
+                  "duration":800
+               },
+               "down":{
+                  "value":-10,
+                  "duration":800
+               }
+            },
+            "turning":{
+               "value":1,
+               "duration":6000
+            }
+         }
       }
    },
    "company":{
@@ -13,7 +32,12 @@
       "delayTodefault":1000
    },
    "language":{
-      "en":"english",
-      "fa":"فارسی"
+      "en":"En",
+      "fa":"فا",
+      "ar":"عرب",
+      "gm":"Gm",
+      "us":"US",
+      "nl":"Nl",
+      "ab":"Ab"  
    }
 }

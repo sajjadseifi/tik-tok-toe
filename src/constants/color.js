@@ -1,4 +1,5 @@
 export default {
+   darkbeautiful:"#2a2a2a",
    darkgrey:"#808080",
    grey:"#a9a9a9",
    indigo:"#4b0082",

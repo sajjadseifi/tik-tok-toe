@@ -26,7 +26,11 @@ export const ContainerBoxGame=()=>{
 const styles = StyleSheet.create({
    container:{
       flex:1,
-      justifyContent:"center"
+      justifyContent:"center",
+      transform:[
+         {rotateX:"45deg"},
+         {perspective: 500},
+      ]
    },
    tiktoktoe:{
       flex:1,

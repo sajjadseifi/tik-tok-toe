@@ -1,5 +1,6 @@
-import { appMessages,gameConfigs,icon,app, languages } from "../../config/default.cofig";
+import { appMessages,gameConfigs,icon,app } from "../../config/default.cofig";
 import { screenKeys } from "../../constants/app";
+import { languages } from "../../constants/language";
 import { updateObject } from "../../utils";
 import * as actionTypes  from "../actions/action-types";
 
@@ -8,7 +9,7 @@ export const initialGlobalState={
    gameCofnig:gameConfigs,
    app,
    icon,
-   lang:app.language.persian,
+   lang:"fa",
    page:"start",
 }
 export const globalReducer=(state=initialState,action)=>{

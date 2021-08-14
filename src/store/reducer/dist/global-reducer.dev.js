@@ -11,6 +11,8 @@ var _default = require("../../config/default.cofig");
 
 var _app = require("../../constants/app");
 
+var _language = require("../../constants/language");
+
 var _utils = require("../../utils");
 
 var actionTypes = _interopRequireWildcard(require("../actions/action-types"));
@@ -24,7 +26,7 @@ var initialGlobalState = {
   gameCofnig: _default.gameConfigs,
   app: _default.app,
   icon: _default.icon,
-  lang: _default.app.language.persian,
+  lang: "fa",
   page: "start"
 };
 exports.initialGlobalState = initialGlobalState;
@@ -61,9 +63,9 @@ var changePage = function changePage(state, action) {
 
 var changeLanguage = function changeLanguage(state, action) {
   var lang = action.lang;
-  if (!_default.languages[lang]) return state;
+  if (!_language.languages[lang]) return state;
   return (0, _utils.updateObject)(state, {
-    messages: _default.languages[lang],
+    messages: _language.languages[lang],
     lang: lang
   });
 };

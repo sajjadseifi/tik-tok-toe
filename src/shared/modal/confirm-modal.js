@@ -21,6 +21,7 @@ export const ConfirmModal=({
    onCancel=()=>{},
 })=>{
    const confMessages = useGlobalSeletor(state=>state.messages.modal.confirm);
+   const icon = useGlobalSeletor(state=>state.icon.modal.confirm);
    const {contents}  = useBackdropSeletor(state=>state);
    const findIndex = contents.findIndex(c=>`${c.key}` == `${modalKey}`);
    const close = !(findIndex < 0 ? false :contents[findIndex].show);
@@ -34,7 +35,10 @@ export const ConfirmModal=({
       dispatch(backdropActions.close(modalKey));
    }  
    const Wrapper = wrapper;
-   const conf = confirmConfig(confMessages,onEventHandler);
+   const conf = confirmConfig({
+      messages:confMessages,
+      icon,
+   },onEventHandler);
    return (
       <Wrapper speed={1.5}  width={CONFIRN_WIDTH} close={close}>
          <WhiteWindow shadow  style={styles.container}>

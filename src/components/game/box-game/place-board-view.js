@@ -43,10 +43,9 @@ const styles = StyleSheet.create({
       borderPlace:{
          borderColor:color.white,
          margin:10,
-         borderWidth:0,
          flex:1,
       },
-      top:{ 
+      top:{
          borderTopWidth:HALF_BORDER ,
          marginTop:STATIC_MARGIN_BOARD,
       },
