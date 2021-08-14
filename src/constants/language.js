@@ -1,9 +1,10 @@
 export const languages  ={
-   en:require("../config/en.config.json"),
-   fa:require("../config/fa.config.json"),
-   ar:require("../config/ar.config.json"),
-   gm:require("../config/ar.config.json"),
-   us:require("../config/ar.config.json"),
-   nl:require("../config/ar.config.json"),
-   ab:require("../config/ar.config.json"),
+   fa:require("../config/languages/fa.lang.json"),
+   en:require("../config/languages/en.lang.json"),
+   arb:require("../config/languages/arb.lang.json"),
+   gm:require("../config/languages/gm.lang.json"),
+   us:require("../config/languages/us.lang.json"),
+   nl:require("../config/languages/nl.lang.json"),
+   por:require("../config/languages/por.lang.json"),
+   sp:require("../config/languages/sp.lang.json")
 };

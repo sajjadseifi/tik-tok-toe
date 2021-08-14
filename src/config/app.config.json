@@ -34,10 +34,11 @@
    "language":{
       "en":"En",
       "fa":"فا",
-      "ar":"عرب",
+      "arb":"عرب",
       "gm":"Gm",
-      "us":"US",
+      "us":"Us",
       "nl":"Nl",
-      "ab":"Ab"  
+      "por":"Pt",
+      "sp":"Sp"
    }
 }

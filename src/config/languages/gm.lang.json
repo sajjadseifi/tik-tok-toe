@@ -1,0 +1,56 @@
+{
+   "endRound":{
+      "titleHeader":{
+         "round":"Gewinne diese Spielrunde",
+         "play":"Gewinner des Spiels"
+      },
+      "winthoutWinner":"Diese Runde ist ohne Sieger!",
+      "baseModal":{
+         "next":"Nächste",
+         "reRun":"Nochmal",
+         "newPlay":"Neues Spiel",
+         "playof":"Spielstart",
+         "exit":"Ausgang"
+      },
+      "confirmed":{
+         "closed":"Möchten Sie das Programm beenden?",
+         "reTurn":"Möchten Sie, dass diese Spielrunde wiederholt wird?",         
+         "nextTurn":"Gehen Sie zum nächsten Schritt?",
+         "playofTurn":"Du willst in die Playoffs?",
+         "newPlay":"Möchten Sie ein neues Spiel starten?"
+      }
+   },
+   "modal":{
+      "confirm":{
+         "ok":"Okay",
+         "cancel":"Stornieren"
+      },      
+      "exit":{
+         "force":"Möchten Sie das Programm beenden?",
+         "recomended":"Möchten Sie das Programm beenden?",
+         "game":"Möchten Sie das Spiel beenden?"
+      }
+   },
+   "screens":{
+      "start":{
+      },
+      "home":{
+         "startGame":"Spiel beginnen",
+         "changeLanguage":"Sprache ändern",
+         "exitApp":"Ausgang"
+      },
+      "game":{
+         "round":"Runden"
+      }
+   },
+   "language":{
+      "en":"Englisch",
+      "fa":"persisch",
+      "arb":"Arabisch",
+      "gm":"Deutsche",
+      "us":"َAmerikanisch",
+      "nl":"Niederlande",
+      "por":"Portugal",
+      "sp":"Spanien"
+   }
+}

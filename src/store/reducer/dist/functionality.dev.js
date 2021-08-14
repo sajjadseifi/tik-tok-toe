@@ -47,7 +47,6 @@ var checkWinner = function checkWinner(state) {
   var player1 = updatedState.player1,
       player2 = updatedState.player2;
   var winner = getWinner(player1, player2);
-  console.log("Player1", player1, "PLayer2", player2);
   return (0, _utils.updateObject)(updatedState, {
     winner: winner,
     endPlay: endPlay

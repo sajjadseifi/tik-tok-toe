@@ -1,0 +1,56 @@
+{
+   "endRound":{
+      "titleHeader":{
+         "round":"Vença esta rodada do jogo",
+         "play":"Vencedor do jogo"
+      },
+      "winthoutWinner":"Esta rodada não tem vencedor!",
+      "baseModal":{
+         "next":"Próxima",
+         "reRun":"Novamente",
+         "newPlay":"Novo jogo",
+         "playof":"Pague",
+         "exit":"Saída"
+      },
+      "confirmed":{
+         "closed":"Você quer sair do programa?",
+         "reTurn":"Quer que esta rodada do jogo se repita?",         
+         "nextTurn":"Indo para a próxima etapa?",
+         "playofTurn":"Você quer ir para os playoffs?",
+         "newPlay":"Você quer começar um novo jogo?"
+      }
+   },
+   "modal":{
+      "confirm":{
+         "ok":"Ok",
+         "cancel":"Cancelar"
+      },      
+      "exit":{
+         "force":"Você quer sair do programa?",
+         "recomended":"Você quer sair do programa?",
+         "game":"Você quer sair do jogo?"
+      }
+   },
+   "screens":{
+      "start":{
+      },
+      "home":{
+         "startGame":"Começar o jogo",
+         "changeLanguage":"Mudar idioma",
+         "exitApp":"Saída"
+      },
+      "game":{
+         "round":"Rodadas"
+      }
+   },
+   "language":{
+      "en":"inglês",
+      "fa":"persa",
+      "arb":"árabe",
+      "gm":"Alemã",
+      "us":"Americana",
+      "nl":"Países Baixos",
+      "por":"Portugal",
+      "sp":"Espanha"
+   }
+}

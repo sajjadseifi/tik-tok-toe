@@ -1,0 +1,56 @@
+{
+   "endRound":{
+      "titleHeader":{
+         "round":"Win this round of the game",
+         "play":"Winner of the game"
+      },
+      "winthoutWinner":"This round is without a winner!",
+      "baseModal":{
+         "next":"Next",
+         "reRun":"Again",
+         "newPlay":"New Game",
+         "playof":"Playof",
+         "exit":"Exit"
+      },
+      "confirmed":{
+         "closed":"Do you want to exit the program?",
+         "reTurn":"Do you want this round of the game to be repeated?",         
+         "nextTurn":"Going to the next step?",
+         "playofTurn":"Do you want to go to the playoffs?",
+         "newPlay":"Do you want to start a new game?"
+      }
+   },
+   "modal":{
+      "confirm":{
+         "ok":"Ok",
+         "cancel":"Cancel"
+      },      
+      "exit":{
+         "force":"Do you want to exit the program?",
+         "recomended":"Do you want to exit the program?",
+         "game":"Do you want to exit the game?"
+      }
+   },
+   "screens":{
+      "start":{
+      },
+      "home":{
+         "startGame":"Start Game",
+         "changeLanguage":"Cahnge Language",
+         "exitApp":"Exit"
+      },
+      "game":{
+         "round":"Rounds"
+      }
+   },
+   "language":{
+      "en":"English",
+      "fa":"Persian",
+      "arb":"Arabic",
+      "gm":"German",
+      "us":"American",
+      "nl":"Netherlands",
+      "por":"Portugal",
+      "sp":"Spain"
+   }
+}

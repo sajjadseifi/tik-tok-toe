@@ -1,0 +1,56 @@
+{
+   "endRound":{
+      "titleHeader":{
+         "round":"Win deze spelronde",
+         "play":"Winnaar van het spel"
+      },
+      "winthoutWinner":"Deze ronde is zonder winnaar!",
+      "baseModal":{
+         "next":"Volgende",
+         "reRun":"Nog een keer",
+         "newPlay":"Nieuw spel",
+         "playof":"Playof",
+         "exit":"Uitgang"
+      },
+      "confirmed":{
+         "closed":"Wilt u het programma verlaten?",
+         "reTurn":"Wil je dat deze ronde van het spel wordt herhaald?",         
+         "nextTurn":"Naar de volgende stap?",
+         "playofTurn":"Wil je naar de play-offs?",
+         "newPlay":"Wil je een nieuw spel starten?"
+      }
+   },
+   "modal":{
+      "confirm":{
+         "ok":"OK",
+         "cancel":"Annuleren"
+      },      
+      "exit":{
+         "force":"Wilt u het programma verlaten?",
+         "recomended":"Wilt u het programma verlaten?",
+         "game":"Wil je het spel verlaten?"
+      }
+   },
+   "screens":{
+      "start":{
+      },
+      "home":{
+         "startGame":"Start het spel",
+         "changeLanguage":"Taal wijzigen",
+         "exitApp":"Uitgang"
+      },
+      "game":{
+         "round":"Rondes"
+      }
+   },
+   "language":{
+      "en":"Engels",
+      "fa":"Perzisch",
+      "arb":"Arabisch",
+      "gm":"Duitse",
+      "us":"Amerikaans",
+      "nl":"Nederland",
+      "por":"Portugal",
+      "sp":"Spanje"
+   }
+}
