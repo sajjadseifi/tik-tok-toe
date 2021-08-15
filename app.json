@@ -8,12 +8,15 @@
     "splash": {
       "image": "./src/assets/icon/splash-logo.png",
       "resizeMode": "contain",
-      "backgroundColor": "#f00"
+      "backgroundColor": "#fff"
     },
     "assetBundlePatterns": [
-      "**/*" 
+      "**/*"
     ],
-    "description": "creating first game of deew team"
+    "description": "creating first game of deew team",
+    "android": {
+      "package": "com.sajjadseifi.xo"
+    }
   },
   "name": "xo"
 }
