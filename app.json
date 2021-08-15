@@ -13,10 +13,7 @@
     "assetBundlePatterns": [
       "**/*" 
     ],
-    "description": "creating first game of deew team",
-    "android": {
-      "package": "host.exp.exponent"
-    }
+    "description": "creating first game of deew team"
   },
-  "name": "X.O"
+  "name": "xo"
 }
