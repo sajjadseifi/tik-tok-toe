@@ -10,6 +10,7 @@ import { SoundPlayer } from "./src/models/sounds-player"
 import { Screens } from "./src/screens/screens"
 import { Backdrop } from './src/shared/backdrop/backdrop'
 import { Asset } from 'react-native-unimodules'
+// import * as SecureStore from 'expo-secure-store';
 
 async function _cacheResourcesAsync() {
   const sounds = SoundPlayer.load(soundsLoader())

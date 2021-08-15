@@ -1,31 +1,19 @@
 {
   "expo": {
     "name": "xo",
-    "slug": "XO",
+    "slug": "xo",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./src/assets/icon/xo-icon.png",
     "splash": {
+      "image": "./src/assets/icon/splash-logo.png",
       "resizeMode": "contain",
-      "backgroundColor": "#f00"
-    },
-    "updates": {
-      "fallbackToCacheTimeout": 0
+      "backgroundColor": "#fff"
     },
     "assetBundlePatterns": [
       "**/*"
     ],
-    "ios": {
-      "supportsTablet": true
-    },
-    "android": {
-      "adaptiveIcon": {
-        "package": "host.exp.exponent",
-        "backgroundColor": "#00f"
-      }
-    },
     "description": "creating first game of deew team"
   },
   "name": "xo"
 }
-

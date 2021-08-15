@@ -23,7 +23,7 @@ export class SoundPlayer{
          await SoundPlayer.soundObjects[name].replayAsync()
       }
       } catch (error) {
-      console.warn(error)
+         console.warn(error)
       }
     }
 }
