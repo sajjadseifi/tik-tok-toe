@@ -1,19 +1,22 @@
 {
   "expo": {
-    "name": "xo",
-    "slug": "xo",
+    "name": "ایکسو",
+    "slug": "ox",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./src/assets/icon/xo-icon.png",
     "splash": {
       "image": "./src/assets/icon/splash-logo.png",
       "resizeMode": "contain",
-      "backgroundColor": "#fff"
+      "backgroundColor": "#f00"
     },
     "assetBundlePatterns": [
-      "**/*"
+      "**/*" 
     ],
-    "description": "creating first game of deew team"
+    "description": "creating first game of deew team",
+    "android": {
+      "package": "host.exp.exponent"
+    }
   },
-  "name": "xo"
+  "name": "X.O"
 }
