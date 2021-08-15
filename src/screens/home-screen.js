@@ -18,8 +18,7 @@ export const HomeScreen = ({})=>{
    return (
       <LinearGradient   
       start={{x: 0, y: 0}}  
-      end={{x:1, y: 1}} 
-      style={styles.home}  
+      end={{x:1, y: 1}} style={styles.home}  
       colors={[color.gold,color.orange]} 
       >
          <View style={styles.content}>   

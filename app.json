@@ -1,16 +1,31 @@
 {
   "expo": {
-    "name": "tik-tok-toe",
-    "slug": "tik-tok-toe",
+    "name": "xo",
+    "slug": "XO",
     "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./src/assets/icon/xo-icon.png",
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#f00"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
     "assetBundlePatterns": [
       "**/*"
     ],
-    "android": {
-      "package": "host.exp.exponent"
+    "ios": {
+      "supportsTablet": true
     },
-    "description": "test"
+    "android": {
+      "adaptiveIcon": {
+        "package": "host.exp.exponent",
+        "backgroundColor": "#00f"
+      }
+    },
+    "description": "creating first game of deew team"
   },
-  "name": "tik-tok-toe"
+  "name": "xo"
 }
 
