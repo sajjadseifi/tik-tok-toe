@@ -112,3 +112,6 @@ buck-out/
 web-build/
 
 # @end expo-cli
+/.gradle/
+
+android/app/src/main/res/

@@ -1,7 +1,6 @@
 
-import React, { useEffect,useRef } from "react";
+import React, {useState, useEffect,useRef } from "react";
 import { Animated, StyleSheet } from "react-native";
-import { useState } from "react/cjs/react.development";
 import { updateObject } from "../../utils";
 import { animateTiming, trasnformScale } from "../../utils/animate";
 

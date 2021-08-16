@@ -1,7 +1,5 @@
-import React,{ useEffect } from "react";
+import React,{ useEffect,useState } from "react";
 import { StyleSheet, View } from "react-native";
-import { useState } from "react/cjs/react.development";
-import { color } from "../../../constants";
 import { useGamePlaySeletor } from "../../../hook/game-hook";
 import { useGlobalSeletor } from "../../../hook/global-hook";
 import { Thinking } from "../../shared/thinking";

@@ -1,6 +1,5 @@
-import React from "react"
+import React ,{useState}from "react"
 import {StyleSheet, View} from "react-native"
-import { useState } from "react/cjs/react.development";
 import { BoardBoxGame } from "./board-box-game";
 import { TurnShape } from "./box-turn-shape";
 

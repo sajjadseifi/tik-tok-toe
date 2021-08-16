@@ -1,16 +1,15 @@
-import React from 'react'
-import AppLoading from "expo-app-loading"
-import { StatusBar } from 'expo-status-bar'
+import React ,{useState} from 'react'
 import { StyleSheet, Text, View } from 'react-native'
-import { useState } from 'react/cjs/react.development'
+import { StatusBar } from 'expo-status-bar'
+import AppLoading from "expo-app-loading"
+// import { useState } from 'react/cjs/react.development'
+import { Asset } from 'react-native-unimodules'
 import { GlobalProvider } from './src/context/global-context'
+import { Backdrop } from './src/shared/backdrop/backdrop'
+import { Screens } from "./src/screens/screens"
+import { SoundPlayer } from "./src/models/sounds-player"
 import { imageLoader } from "./src/helpers/loader/image-loader"
 import { soundsLoader } from "./src/helpers/loader/sounds-loader"
-import { SoundPlayer } from "./src/models/sounds-player"
-import { Screens } from "./src/screens/screens"
-import { Backdrop } from './src/shared/backdrop/backdrop'
-import { Asset } from 'react-native-unimodules'
-// import * as SecureStore from 'expo-secure-store';
 
 async function _cacheResourcesAsync() {
   const sounds = SoundPlayer.load(soundsLoader())

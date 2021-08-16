@@ -1,6 +1,5 @@
 import { Animated } from "react-native"
 
-const one = new Animated.Value(1);
 export const animateTiming = (to,value,duration,next=()=>{})=>{
    return Animated.timing(to,{
       toValue:value,         
@@ -27,7 +26,8 @@ export const animateLooping=(to,value,duration,next=()=>{})=>{
       animateLooping(to,start,duration)
    })
 }
-export const trasnformScale=(vertical=one,horizontal=one)=>{
+
+export const trasnformScale=(vertical,horizontal)=>{
    return{
       transform:[
          {scaleX:horizontal},

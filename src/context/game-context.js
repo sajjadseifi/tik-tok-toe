@@ -1,6 +1,4 @@
-import React from "react";
-import { useReducer } from "react";
-import { useEffect } from "react/cjs/react.development";
+import React,{ useReducer,useEffect } from "react";
 import * as t3Types from "../store/actions/tik-toc-toe";
 import * as gmTypes from "../store/actions/game-action";
 
