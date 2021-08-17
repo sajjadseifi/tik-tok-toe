@@ -40,38 +40,60 @@
 # Game Play
 
 <table>
-      <tr>
-         <td>
-            <img src="https://github.com/sajjadseifi/tik-tok-toe/blob/master/overview/4.png?raw=true" alt="4">
-         </td>
-         <td>
-            <img src="https://github.com/sajjadseifi/tik-tok-toe/blob/master/overview/5.png?raw=true" alt="5">
-         </td>
-         <td>
-               <img src="https://github.com/sajjadseifi/tik-tok-toe/blob/master/overview/6.png?raw=true" alt="6">
-         </td>
-         <td>
-            <img src="https://github.com/sajjadseifi/tik-tok-toe/blob/master/overview/7.png?raw=true" alt="7">
-         </td>
-         <td>
-            <img src="https://github.com/sajjadseifi/tik-tok-toe/blob/master/overview/8.png?raw=true" alt="8">
-         </td>
-      </tr>
-      <tr>
-         <td>
-            <img src="https://github.com/sajjadseifi/tik-tok-toe/blob/master/overview/13.png?raw=true" alt="13">
-         </td>
-         <td>
-            <img src="https://github.com/sajjadseifi/tik-tok-toe/blob/master/overview/14.png?raw=true" alt="14">
-         </td>
-         <td>
-               <img src="https://github.com/sajjadseifi/tik-tok-toe/blob/master/overview/15.png?raw=true" alt="15">
-         </td>
-         <td>
-            <img src="https://github.com/sajjadseifi/tik-tok-toe/blob/master/overview/16.png?raw=true" alt="16">
-         </td>
-         <td>
-            <img src="https://github.com/sajjadseifi/tik-tok-toe/blob/master/overview/17.png?raw=true" alt="17">
-         </td>
-      </tr>
+   <tr>
+      <td>
+         <img src="https://github.com/sajjadseifi/tik-tok-toe/blob/master/overview/4.png?raw=true" alt="4">
+      </td>
+      <td>
+         <img src="https://github.com/sajjadseifi/tik-tok-toe/blob/master/overview/5.png?raw=true" alt="5">
+      </td>
+      <td>
+         <img src="https://github.com/sajjadseifi/tik-tok-toe/blob/master/overview/6.png?raw=true" alt="6">
+      </td>
+      <td>
+         <img src="https://github.com/sajjadseifi/tik-tok-toe/blob/master/overview/7.png?raw=true" alt="7">
+      </td>
+      <td>
+         <img src="https://github.com/sajjadseifi/tik-tok-toe/blob/master/overview/8.png?raw=true" alt="8">
+      </td>
+   </tr>
+   <tr>
+      <td>
+         <img src="https://github.com/sajjadseifi/tik-tok-toe/blob/master/overview/13.png?raw=true" alt="13">
+      </td>
+      <td>
+         <img src="https://github.com/sajjadseifi/tik-tok-toe/blob/master/overview/14.png?raw=true" alt="14">
+      </td>
+      <td>
+         <img src="https://github.com/sajjadseifi/tik-tok-toe/blob/master/overview/15.png?raw=true" alt="15">
+      </td>
+      <td>
+         <img src="https://github.com/sajjadseifi/tik-tok-toe/blob/master/overview/16.png?raw=true" alt="16">
+      </td>
+      <td>
+         <img src="https://github.com/sajjadseifi/tik-tok-toe/blob/master/overview/17.png?raw=true" alt="17">
+      </td>
+   </tr>
+</table>
+
+
+# Added Single Play Feacher
+ <table>
+   <tr>
+      <td>
+         <img src="https://github.com/sajjadseifi/tik-tok-toe/blob/master/overview/18.png?raw=true" alt="18">
+      </td>
+      <td>
+         <img src="https://github.com/sajjadseifi/tik-tok-toe/blob/master/overview/19.png?raw=true" alt="19">
+      </td>
+      <td>
+         <img src="https://github.com/sajjadseifi/tik-tok-toe/blob/master/overview/20.png?raw=true" alt="20">
+      </td>
+      <td>
+         <img src="https://github.com/sajjadseifi/tik-tok-toe/blob/master/overview/21.png?raw=true" alt="21">
+      </td>
+      <td>
+         <img src="https://github.com/sajjadseifi/tik-tok-toe/blob/master/overview/22.png?raw=true" alt="22">
+      </td>
+   </tr>
 </table>
