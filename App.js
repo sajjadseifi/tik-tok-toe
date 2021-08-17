@@ -2,7 +2,6 @@ import React ,{useState} from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import { StatusBar } from 'expo-status-bar'
 import AppLoading from "expo-app-loading"
-// import { useState } from 'react/cjs/react.development'
 import { Asset } from 'react-native-unimodules'
 import { GlobalProvider } from './src/context/global-context'
 import { Backdrop } from './src/shared/backdrop/backdrop'
@@ -12,7 +11,7 @@ import { imageLoader } from "./src/helpers/loader/image-loader"
 import { soundsLoader } from "./src/helpers/loader/sounds-loader"
 
 async function _cacheResourcesAsync() {
-  const sounds = SoundPlayer.load(soundsLoader())
+  const sounds = []// SoundPlayer.load(soundsLoader())
   const images =  imageLoader();
 
   const cacheImages = images.map(image => {

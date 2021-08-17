@@ -42,11 +42,8 @@ export const BackDropView=({detail,zIndex}) => {
       }
    }
 
-   const clickBackdrop=()=> {
-      if(closable)
-         dispatch(bkActions.close(key));
-   }
-
+   const clickBackdrop= () => closable && dispatch(bkActions.close(key));
+   
    const opacStyle =interPolOpacity(trasnition);
    const opacContentStyle=interPolOpacity(contentTransit);
 

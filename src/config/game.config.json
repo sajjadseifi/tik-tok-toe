@@ -11,7 +11,7 @@
    },
    "currentPlayer":null,
    "turn":0,
-   "maxRounds":3,
+   "maxRounds":5,
    "round":1,
    "playof":false,
    "playofRounds":0,
@@ -20,5 +20,9 @@
    "endRound":false,
    "board":null,
    "endPlay":false,
-   "winner":null
+   "winner":null,
+   "playState":0,
+   "roboot":false,
+   "robootTimer":1000,
+   "degree":0
 }

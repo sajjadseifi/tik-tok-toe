@@ -3,6 +3,7 @@ import * as t3Types from "../store/actions/tik-toc-toe";
 import * as gmTypes from "../store/actions/game-action";
 
 import { gameReducer, initialGameState } from "../store/reducer";
+import { statesGamePlay } from "../constants/app";
 export const GameStateContext = React.createContext()
 
 const props={
@@ -11,6 +12,7 @@ const props={
    turn:0,
    maxRounds:10,
    children:null,
+   playState:statesGamePlay.online
 };
 export  const GameProvider =({children,...initialState}=props)=>{
       const [state,dispatch] = useReducer(gameReducer,{

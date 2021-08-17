@@ -2,9 +2,7 @@ import React from "react";
 import  { StyleSheet, View} from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 import color from "../constants/color";
-import { APP_WIDTH } from "../constants/size";
-import * as globActions  from "../store/actions/global-actions"
-import { useGlobalDispatch, useGlobalSeletor } from "../hook/global-hook";
+import { useGlobalSeletor } from "../hook/global-hook";
 import { Seperator } from "../components/shared/seprator";
 import { HomeLogo } from "../components/home/logo";
 import { FormHome } from "../components/home/form";
@@ -12,8 +10,6 @@ import { FormHome } from "../components/home/form";
 export const HomeScreen = ({})=>{
    const homeDetail = useGlobalSeletor(state=>state.messages.screens.home);
    const homeIcon = useGlobalSeletor(state=>state.icon.screens.home);
-   const dispatchGlobal = useGlobalDispatch();
-   const goToGame=()=>dispatchGlobal(globActions.changePage("game"));
 
    return (
       <LinearGradient   
@@ -24,7 +20,7 @@ export const HomeScreen = ({})=>{
          <View style={styles.content}>   
             <HomeLogo  />
             <Seperator row={false} space={20}/>
-            <FormHome {...{goToGame, homeIcon, homeDetail}}/>
+            <FormHome {...{homeIcon, homeDetail}}/>
          </View>
    </LinearGradient>
    )

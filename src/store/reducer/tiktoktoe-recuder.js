@@ -34,24 +34,24 @@ export  const clearBoard=()=>{
 }
 
 export  const sitPlayer=(state,action)=>{
-   const board = state.board;
-   const {player,place}=action;
+   const {currentPlayer,board}= state;
+   const { place }=action;
    
-   board.setInPlace(player,place.row,place.col);
+   if(!place) return state;
+
+   board.setInPlace(currentPlayer,place.row,place.col);
    
    return nextTrun(state,{ board })
 };
 
-const nextTrun=(state,action)=>{   
+const nextTrun=(state,action)=>{ 
    const {board } = action;
-   let updatedState=updateObject(state,{ board })
+   let updatedState=updateObject(state,{ board})
 
    if(board.endOfGame()){
       const winState= updateObject(updatedState,checkWinner(updatedState))
-      
       return updateObject(winState,{endRound:true})
-   }
-   
-   const newTurn = (state.turn +1) % 2;
-   return  setCurrentPlayer(state, newTurn);
+   }   
+   const newTurn = (updatedState.turn +1) % 2;
+   return  setCurrentPlayer(updatedState, newTurn);
 };

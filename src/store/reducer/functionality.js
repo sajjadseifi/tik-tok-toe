@@ -1,12 +1,16 @@
-import { Player } from "../../models";
+import { statesGamePlay } from "../../constants/app";
 import { updateObject } from "../../utils"
 
 export const setCurrentPlayer=(state,turn)=>{
+   const roboot = 
+      turn ==  1 //player 2
+   &&  
+      state.playState == statesGamePlay.single;
+   const currentPlayer= ( turn == 0 )  ? state.player1 : state.player2;
    return updateObject(state,{
       turn:turn,
-      currentPlayer :( turn == 0 )
-      ? state.player1
-      : state.player2 
+      currentPlayer,
+      roboot
    })
 }
 
@@ -15,6 +19,7 @@ export const clearBoard=(state)=>{
    board.clear();   
    return updateObject(state,{ board ,endRound:false }) 
 }
+
 const getWinner = (player1,player2)=>{
    if(player1.score == player2.score) 
       return null;

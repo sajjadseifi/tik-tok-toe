@@ -12,6 +12,9 @@
       "confirm":{
          "cancel":"remove",
          "ok":"check"
+      },
+      "degree":{
+         "titleIcon":"gamepad"
       }
    },
    "screens":{
@@ -19,7 +22,13 @@
       "home":{
          "startGame":"gamepad",
          "exitApp":"exit",
-         "changeLanguage":"globe"
+         "changeLanguage":"globe",
+         "statGameModal":{
+            "singlePlayer":"robot",
+            "twoPlayer":"user-friends",
+            "online":"online-prediction",
+            "close":"close"
+         }
       }
    }
 }

@@ -6,17 +6,19 @@ import FontAwesome from "react-native-vector-icons/FontAwesome"
 import Ionicons from "react-native-vector-icons/Ionicons"
 import { color } from "../../constants";
 import { HomeButton } from "./button";
+import { StartGame } from "../shared/start-game";
 
-export const FormHome =({homeDetail,homeIcon,goToGame=()=>{}})=>{
+export const FormHome =({homeDetail,homeIcon})=>{
    return (
       <View style={styles.buttonGroup}>
-      <HomeButton 
-         title={homeDetail.startGame}
-         iconName={homeIcon.startGame}
-         color={color.black}
-         Icon={FontAwesome}
-         onPress={goToGame}
-      />
+         <StartGame>
+            <HomeButton 
+               title={homeDetail.startGame}
+               iconName={homeIcon.startGame}
+               color={color.black}
+               Icon={FontAwesome}
+            />
+      </StartGame>
       <LanguageChanger>
          <HomeButton 
             title={homeDetail.changeLanguage}

@@ -1,5 +1,5 @@
 import React from "react";
-import {  StyleSheet } from "react-native";
+import {  StyleSheet, Text, View } from "react-native";
 import { ExplosiveModal } from "./explosive-modal";
 import { WhiteWindow } from "../ui/white-window";
 import { APP_WIDTH } from "../../constants/size";
@@ -16,9 +16,12 @@ const CONFIRN_WIDTH =APP_WIDTH  * 3/4;
 export const ConfirmModal=({
    modalKey="",
    wrapper=ExplosiveModal,
+   title=null,
    question="",
    onConfirmed=()=>{},
    onCancel=()=>{},
+   showOk=true,
+   showCance=true,
 })=>{
    const confMessages = useGlobalSeletor(state=>state.messages.modal.confirm);
    const icon = useGlobalSeletor(state=>state.icon.modal.confirm);
@@ -31,7 +34,6 @@ export const ConfirmModal=({
    const onEventHandler =(state=false)=>{
       const onSelect =state?onConfirmed: onCancel;
       onSelect();
-      
       dispatch(backdropActions.close(modalKey));
    }  
    const Wrapper = wrapper;
@@ -42,10 +44,13 @@ export const ConfirmModal=({
    return (
       <Wrapper speed={1.5}  width={CONFIRN_WIDTH} close={close}>
          <WhiteWindow shadow  style={styles.container}>
-               <TitleModal text={question} />
+               {title && <TitleModal text={title} />}
+               <View style={styles.question}>
+                  <Text style={styles.questionText}>{question}</Text>
+               </View>
                <Flex justCenter style={styles.formButton}>
-                     <ButtonIcon {...conf.ok} />
-                     <ButtonIcon {...conf.cancel} />
+                  {showOk && <ButtonIcon {...conf.ok} />}
+                  {showCance && <ButtonIcon {...conf.cancel} />}
                </Flex>
          </WhiteWindow>
       </Wrapper>
@@ -57,8 +62,12 @@ const styles = StyleSheet.create({
       paddingVertical:13,
       paddingHorizontal:10,
    },
-   question:{},
-   questionText:{},
+   question:{
+
+   },
+   questionText:{
+
+   },
    formButton:{
       marginTop:25,
    }

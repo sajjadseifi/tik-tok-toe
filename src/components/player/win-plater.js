@@ -16,7 +16,6 @@ export const WinPlayer =({
 })=>{
    const strNotWinner = useGlobalSeletor(state=>state.messages.endRound.winthoutWinner);
    const eq = allRounds - players.reduce((total =0 ,{score})=> {
-      console.log({total,score})
       return total.score + parseInt(score);
    })
 

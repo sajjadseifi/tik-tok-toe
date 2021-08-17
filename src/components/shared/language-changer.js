@@ -49,11 +49,9 @@ export const LanguageChanger =({children})=>{
       )
       dispatchBkdrp(backdropActions.addBackdrop(exitKey,content,true,true));
    }   
-   return(
-         <Pressable onTouchEnd={onCahngeLangHandler}>
-            {children}
-         </Pressable>  
-      ) 
+   
+   return <Pressable onTouchEnd={onCahngeLangHandler}>{children}</Pressable>  
+      
 };
 const WIDTH_LANG_BOX_MODAL=APP_WIDTH * 6/7;
 const HEIGTH_LANG_BOX_MODAL=APP_HEIGTH * 3/4;

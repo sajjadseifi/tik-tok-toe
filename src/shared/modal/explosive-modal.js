@@ -12,8 +12,9 @@ const times ={
    T120:120,
    T100:100
 };
+const modalWidth = APP_WIDTH * 4/5;
 export const ExplosiveModal=({
-   width=null,
+   width=modalWidth ,
    close=false,
    reAnimate=false,
    onClosed=()=>{},

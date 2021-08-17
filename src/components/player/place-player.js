@@ -8,30 +8,30 @@ import { updateObject } from "../../utils";
 import { dirBoardCreator } from "../../utils/board";
 
 export const PlacePlayer =({place= new Place()})=>{
-
-   const dispatch = useGamePlayDispatch();
-   const {board,endRound} = useGamePlaySeletor(state=>state);
+   const {board,endRound,roboot} = useGamePlaySeletor(state=>state);
    const computed = dirBoardCreator(place.row,place.col,board.rows,board.cols,styles);   
    const placeplayerStyle = updateObject(styles.wrapper,computed);
    const currentPlayer = useGamePlaySeletor(state=>state.currentPlayer);
+   const dispatch = useGamePlayDispatch();
    
    const  sitDowIt= () => dispatch(t3Actions.sitDownToPlace(currentPlayer,place));
    
-   const Cmp = (place.exist || endRound) ? View:Pressable    
+   const Cmp = (place.exist || endRound || roboot) ? View:Pressable    
+   
    const Shape =place.player? place.player.shape:null;
 
     return (
-         <Cmp
-            android_disableSound
-            onPress={sitDowIt}
-            style={placeplayerStyle}
-         >
-            {place.player && (
-               <View style={styles.sitedPlayer}>
-                  <Shape play={true}  color={place.player.color} />
-               </View>
-            )}
-         </Cmp>
+      <Cmp
+         android_disableSound
+         style={placeplayerStyle}
+         onPress={sitDowIt} 
+      >
+         {Shape && (
+            <View style={styles.sitedPlayer}>
+               <Shape play={true}  color={place.player.color} />
+            </View>
+         )}
+      </Cmp>
    )
 }
 

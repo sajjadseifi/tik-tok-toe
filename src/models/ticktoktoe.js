@@ -1,6 +1,7 @@
 import { Line } from "./Line";
 import { Place } from "./place";
 import { Position } from "./position";
+import { Roboot } from "./robbot";
 const ROWS=3;
 const COLS=3;
 export class TikTokToe{
@@ -41,15 +42,17 @@ export class TikTokToe{
    dump(){
       this.player = [];
    }
+
    setInPlace=(player,row,col)=>{
          if(this.endGame)
             return;
          if(row< 0 || row >= this.rows || col < 0 || col >= this.cols)
-            throw new Error("Out Of Reng Array");
+            return;
 
          const place = this.places[row][col];
-         if(place .exist)
-            throw new Error("کاربر در این مکان نشسته است");
+         console.log({col,row},"place.exist : ",place.exist)
+         if(place.exist)
+            return;
          
          this.sitedNumber=this.sitedNumber + 1;
          place.sitInPlace(player)
@@ -132,4 +135,10 @@ export class TikTokToe{
       }
    }
    endOfGame=()=>this.endGame;
+   
+   findBestPlace=(degree=0)=>{
+      const rob = new Roboot(degree,this.places);
+      const place =  rob.execute();
+      return place;
+   }
 }

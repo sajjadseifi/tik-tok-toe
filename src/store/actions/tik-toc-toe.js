@@ -9,9 +9,12 @@ export const clearBoard=()=>reducerAction(actionTypes.TIKTOKTOE_CLEAR_BOARD);
 
 export const dumpBoard=()=>reducerAction(actionTypes.TIKTOKTOE_DUMP_BOARD);
 
-export const sitDownToPlace=(player,place)=>reducerAction(actionTypes.TIKTOKTOE_SIT_PLAYER,{
-   player,
-   place,
-})
+export const sitDownToPlace=(player,place)=>reducerAction(
+   actionTypes.TIKTOKTOE_SIT_PLAYER,
+   {
+      player,
+      place,
+   }
+)
 
 export const nextPlayer = () => reducerAction(actionTypes.TIKTOKTOE_NEXT_PLAYER)

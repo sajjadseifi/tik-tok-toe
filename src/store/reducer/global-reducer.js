@@ -12,6 +12,7 @@ export const initialGlobalState={
    lang:"fa",
    page:"start",
 }
+
 export const globalReducer=(state=initialState,action)=>{
    switch(action.type){
       case actionTypes.GLOBAL_CHANGE_PAGE:return changePage(state,action);
@@ -21,12 +22,12 @@ export const globalReducer=(state=initialState,action)=>{
 };
 
 const changePage=(state,action)=>{
-   const {page} = action;
+   const {page,payload} = action;
    const exist = screenKeys.some((pk)=>`${page}` == `${pk}`)
 
-   if(exist) return updateObject(state,{page})
+   if(!exist) return state;
 
-   return state;
+   return updateObject(state,{page, payload })
 }
 
 const changeLanguage=(state,action)=>{

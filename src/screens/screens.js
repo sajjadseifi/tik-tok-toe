@@ -11,9 +11,8 @@ export const screensObjet ={
 };
 
 export const Screens=()=>{
-   const {page} = useGlobalSeletor(state=>state);
-   
+   const {page,payload} = useGlobalSeletor(state=>state);
    const Scr = screensObjet[page];
 
-   return <>{Scr && <Scr/>}</>
+   return <>{Scr && <Scr   {...payload}/>}</>
 }

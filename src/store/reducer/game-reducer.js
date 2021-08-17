@@ -9,32 +9,33 @@ import { Player } from "../../models";
 export const initialGameState= Object.assign(defaultGameCfig,{});
 
 export const gameReducer =(state=initialGameState,action)=>{
-   
    switch(action.type){
-            case actionTypes.INITIAL_GAME_STATE:return init(state,action);
-            case actionTypes.NEXT_GAME_ROUND: return next(state,action);
-            case actionTypes.CURRENT_GAME_PLAYER:return setCurrentPlayer(state,action.turn);
-            case actionTypes.GAME_PLAYER_NEXT_TURN:return nextTrun(state,action);
-            case actionTypes.GAME_PLAY_END_ROUNDS:return updateObject(state,{endRound:true});
-            case actionTypes.RE_GAME_ROUND:return reRoundGame(state,action);
-            case actionTypes.GAME_PLAY_PLATOF:return startPlayofGame(state,action);
-            case actionTypes.GAME_PLAY_NEW_PLAY:return startNewPlay(state,action);
+      case actionTypes.INITIAL_GAME_STATE:return init(state,action);
+      case actionTypes.NEXT_GAME_ROUND: return next(state,action);
+      case actionTypes.CURRENT_GAME_PLAYER:return setCurrentPlayer(state,action.turn);
+      case actionTypes.GAME_PLAYER_NEXT_TURN:return nextTrun(state,action);
+      case actionTypes.GAME_PLAY_END_ROUNDS:return updateObject(state,{endRound:true});
+      case actionTypes.RE_GAME_ROUND:return reRoundGame(state,action);
+      case actionTypes.GAME_PLAY_PLATOF:return startPlayofGame(state,action);
+      case actionTypes.GAME_PLAY_NEW_PLAY:return startNewPlay(state,action);
+      case actionTypes.GAME_PLAY_CHANGE_DEGREE: return changeDegree(state,action);   
    }
 
     return tiktoktoeReducer(state,action)     
 }
 
 const init=(state,action)=>{
-   const {player1,player2,maxRounds}=action;
+   const {player1,player2,maxRounds,playState}=action;
    const round = action.round ? action.round : state.round ;
-      
+
    const gift = {
+      maxRounds,
+      playState,
+      roboot:false,
+      turn:getTurn(round),
       player1:Player.restScorePlayer(player1),
       player2:Player.restScorePlayer(player2),
-      turn:getTurn(round),
-      maxRounds,
    };
-   
    let updatedState = ifExistenceComing(state,gift)
 
    return  setCurrentPlayer(updatedState, updatedState.turn)
@@ -99,4 +100,11 @@ const startNewPlay = (state,action)=>{
    return updateObject(reInitedSatte,{
       board : new TikTokToe()
    });
+}
+
+const changeDegree=(state,action)=>{
+   
+   return updateObject(state,{
+      degree:action.degree
+   })
 }

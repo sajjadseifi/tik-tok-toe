@@ -1,23 +1,26 @@
 import * as actionTypes  from "./action-types";
 const { reducerAction } = actionTypes ;
 
-export const initialGame=({player1,player2,maxRounds,turn})=>{
+export const initialGame=({player1,player2,maxRounds,turn,playState})=>{
    return reducerAction(actionTypes.INITIAL_GAME_STATE,{
       player1,
       player2,
       maxRounds,
-      turn
+      turn,
+      playState
    })
 }
 
 export const endRound= ()=>reducerAction(actionTypes.GAME_PLAY_END_ROUNDS)
 
-export const setPlayer=(turn,player)=>{
-   return reducerAction(actionTypes.SET_GAME_PLAYER,{
+export const setPlayer=(turn,player)=> reducerAction(
+   actionTypes.SET_GAME_PLAYER,
+   {
       turn,
       player
-   })
-}
+   }
+)
+
 
 export const setCurrentPlayer =(turn)=>reducerAction(actionTypes.CURRENT_GAME_PLAYER,{
    turn
@@ -34,3 +37,10 @@ export const nextTurn=(board)=> reducerAction(actionTypes.GAME_PLAYER_NEXT_TURN,
 export const newPlay =()=> reducerAction(actionTypes.GAME_PLAY_NEW_PLAY)
 
 export const playof =()=> reducerAction(actionTypes.GAME_PLAY_PLATOF)
+
+export const chahngeDgree=(degree)=>reducerAction(
+   actionTypes.GAME_PLAY_CHANGE_DEGREE,
+   {
+      degree
+   }
+);

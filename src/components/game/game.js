@@ -11,17 +11,31 @@ import { EndRoundGameModal } from "./modal/endround-game-modal";
 import { SoundPlayer } from "../../models/sounds-player";
 import { audios } from "../../helpers/loader/sounds-loader";
 import { NavbarHeader } from "../navbar/navbar-header";
+import * as t3Actions from "../../store/actions/tik-toc-toe";
 
 const MODAL_KEY ="END_ROUND"
+
 export const Game =()=>{
    const state = useGamePlaySeletor(state=>state);
-   const {endRound} = state;
+   const {endRound,roboot,board,degree,robootTimer} = state;
    const dispatch = useBackdropDispatch();
    const gamePlayDispatch = useGamePlayDispatch()
+   
    useEffect(()=>{
       if(endRound) addModal();
    },[endRound])
    
+   useEffect(()=>{
+      // if(roboot) setTimeout(robootThinking,robootTimer);
+      if(roboot) 
+         robootThinking();
+   },[roboot])
+
+   const robootThinking =()=>{
+      const place = board.findBestPlace(degree);
+      console.log({place})
+      gamePlayDispatch(t3Actions.sitDownToPlace(null,place));
+   };
    const addModal =()=>{
       SoundPlayer.playSound(audios.NICE);
       const Modal =   (     
@@ -31,9 +45,9 @@ export const Game =()=>{
             gamePlayDispatch={gamePlayDispatch}
          />
       );
-
       dispatch(backdropActionTypes.addBackdrop(MODAL_KEY,Modal,true))
    };
+
    return(
       <GamePlayContainer style={styles.container}>   
          <NavbarHeader />     

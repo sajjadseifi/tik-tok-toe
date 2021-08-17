@@ -1,13 +1,17 @@
 import React from 'react'
 import { GameProvider } from '../context/game-context'
-import { Game } from '../components/game/game'
+import { Game as GamePlayMain } from '../components/game/game'
 import { GameLoading } from '../components/Loading/game-loading';
+import { statesGamePlay } from '../constants/app';
 
-export const GamePlayScreen = () => {
+export const GamePlayScreen = ({
+  playState=statesGamePlay.online,
+}) => {
+
   return (
     <GameLoading>
-      <GameProvider>
-        <Game/>
+      <GameProvider  playState={playState} >
+        <GamePlayMain/>
       </GameProvider>
     </GameLoading>
   )
